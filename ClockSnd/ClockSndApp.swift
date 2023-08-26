@@ -1,0 +1,21 @@
+//
+//  ClockSndApp.swift
+//  ClockSnd
+//
+//  Created by Vlady on 26.08.2023.
+//
+
+import SwiftUI
+import UIKit
+
+@main
+struct ClockSndApp: App {
+
+    var body: some Scene {
+        WindowGroup {
+            MainView()
+        }
+    }
+}
+
+

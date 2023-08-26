@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Jost-Black.ttf</string>
+		<string>Jost-BlackItalic.ttf</string>
+		<string>Jost-Bold.ttf</string>
+		<string>Jost-BoldItalic.ttf</string>
+		<string>Jost-ExtraBold.ttf</string>
+		<string>Jost-ExtraBoldItalic.ttf</string>
+		<string>Jost-ExtraLight.ttf</string>
+		<string>Jost-ExtraLightItalic.ttf</string>
+		<string>Jost-Italic.ttf</string>
+		<string>Jost-Light.ttf</string>
+		<string>Jost-LightItalic.ttf</string>
+		<string>Jost-Medium.ttf</string>
+		<string>Jost-MediumItalic.ttf</string>
+		<string>Jost-Regular.ttf</string>
+		<string>Jost-SemiBold.ttf</string>
+		<string>Jost-SemiBoldItalic.ttf</string>
+		<string>Jost-Thin.ttf</string>
+		<string>Jost-ThinItalic.ttf</string>
+		<string>Nunito-Black.ttf</string>
+		<string>Nunito-BlackItalic.ttf</string>
+		<string>Nunito-Bold.ttf</string>
+		<string>Nunito-BoldItalic.ttf</string>
+		<string>Nunito-ExtraBold.ttf</string>
+		<string>Nunito-ExtraBoldItalic.ttf</string>
+		<string>Nunito-ExtraLight.ttf</string>
+		<string>Nunito-ExtraLightItalic.ttf</string>
+		<string>Nunito-Italic.ttf</string>
+		<string>Nunito-Light.ttf</string>
+		<string>Nunito-LightItalic.ttf</string>
+		<string>Nunito-Medium.ttf</string>
+		<string>Nunito-MediumItalic.ttf</string>
+		<string>Nunito-Regular.ttf</string>
+		<string>Nunito-SemiBold.ttf</string>
+		<string>Nunito-SemiBoldItalic.ttf</string>
+	</array>
+</dict>
+</plist>
