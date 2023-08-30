@@ -6,107 +6,154 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ClockView: View {
-    @State var hour = ""
-    @State var minute = ""
-    @State var showInstruments = false
-    @State var screenOrientationLandscape = false
-    @Binding var clockShown: Bool
-    var updateTimer: Timer {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
-                             block: {_ in
-            self.hour = Date().formatted(Date.FormatStyle().hour(.twoDigits(amPM: .omitted)))
-            self.minute = Date().formatted(Date.FormatStyle().minute())
-
-        })
-    }
+    @ObservedObject var viewModel: ClockViewModel
+    @Binding var isClockShown: Bool
+    
     var body: some View {
-        ZStack {
-            Color.customColor11
+        ZStack(alignment: .bottom) {
+            viewModel.backgroundColor
                 .ignoresSafeArea()
             
-                VStack {
-                    hourView
-                    minutesView
+            if viewModel.showInstruments {
+                GeometryReader { geometry in
+                    clockView.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }.transition(.identity)
+            } else {
+                clockView.transition(.identity)
+            }
+
+            GeometryReader { geometry in
+                ZStack {
+                    instrumentsView
+                        .position(x: geometry.size.width / 2, y: 50)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 }
-            .onAppear {
-                let _ = self.updateTimer
             }
-            if showInstruments {
-                instruments
-            }
+            .opacity(viewModel.showInstruments ? 1 : 0)
+            .transition(.opacity)
         }
-        
         .onTapGesture {
             withAnimation() {
-                showInstruments.toggle()
+                viewModel.showInstruments.toggle()
             }
-        }.statusBar(hidden: true)
+        }
+        .statusBar(hidden: true)
     }
 }
 
 extension ClockView {
+    
+    var clockView: some View {
+        Group {
+            VStack(spacing: 0) {
+                Spacer()
+                hourView
+                dividerView
+                    .frame(width: 80, height: 100)
+                    .padding(.vertical, -25)
+                minutesView
+                Spacer()
+                }
+            .onAppear {
+                let _ = self.viewModel.updateTimer
+            }
+            
+        }
+    }
+    
     var hourView: some View {
         Group {
-            if screenOrientationLandscape {
+            if viewModel.rotationIndex == 1 {
                 HStack {
-                    SndText(family: .nunito, size: 200, hour)
-                        .foregroundColor(.customColor1)
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
+                        .foregroundColor(viewModel.textColor)
                 }.rotationEffect(.degrees(90))
+            } else if viewModel.rotationIndex == 2 {
+                HStack {
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
+                        .foregroundColor(viewModel.textColor)
+                }.rotationEffect(.degrees(270))
             } else {
-                SndText(family: .nunito, size: 200, hour)
-                    .foregroundColor(.customColor1)
+                SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
+                    .foregroundColor(viewModel.textColor)
             }
         }
     }
     
     var minutesView: some View {
         Group {
-            if screenOrientationLandscape {
+            if viewModel.rotationIndex == 1 {
                 HStack {
-                    SndText(family: .nunito, size: 200, minute)
-                        .foregroundColor(.customColor1)
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
+                        .foregroundColor(viewModel.textColor)
                 }.rotationEffect(.degrees(90))
-
+            } else if viewModel.rotationIndex == 2 {
+                HStack {
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
+                        .foregroundColor(viewModel.textColor)
+                }.rotationEffect(.degrees(270))
             } else {
-                SndText(family: .nunito, size: 200, minute)
-                    .foregroundColor(.customColor1)
+                SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
+                    .foregroundColor(viewModel.textColor)
             }
         }
     }
     
-    var instruments: some View {
+    var dividerView: some View {
+        Group {
+            if viewModel.rotationIndex == 1 {
+                HStack {
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, ":")
+                        .foregroundColor(viewModel.textColor)
+                        .padding(.bottom, 40)
+                }.rotationEffect(.degrees(90))
+            } else if viewModel.rotationIndex == 2  {
+                HStack {
+                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, ":")
+                        .foregroundColor(viewModel.textColor)
+                        .padding(.bottom, 40)
+                }.rotationEffect(.degrees(270))
+            }
+        }
+    }
+    
+    var instrumentsView: some View {
         VStack {
             HStack {
                 Button {
                     withAnimation {
-                        clockShown.toggle()
+                        isClockShown = false
                     }
                 } label: {
-                    SndText(family: .nunito, style: .extraBold, "Back")
+                    SndText(family: viewModel.font, style: .extraBold, "Back")
                 }
                 .font(.headline)
-                .foregroundColor(.customColor11)
+                .foregroundColor(viewModel.backgroundColor)
                 .padding()
-                .background(Color.customColor1)
+                .background(viewModel.textColor)
                 .cornerRadius(10)
                 Spacer()
                 Button {
                     withAnimation {
-                        screenOrientationLandscape.toggle()
+                        if viewModel.rotationIndex < 2 {
+                            viewModel.rotationIndex += 1
+                        } else {
+                            viewModel.rotationIndex = 0
+                        }
                     }
                 } label: {
-                    SndText(family: .nunito, style: .extraBold, "Orientation")
+                    SndText(family: viewModel.font, style: .extraBold, "Orientation")
                 }
                 .font(.headline)
-                .foregroundColor(.customColor11)
+                .foregroundColor(viewModel.backgroundColor)
                 .padding()
-                .background(Color.customColor1)
+                .background(viewModel.textColor)
                 .cornerRadius(10)
             }
-            Spacer()
+            .padding()
         }
-        .padding()
     }
 }

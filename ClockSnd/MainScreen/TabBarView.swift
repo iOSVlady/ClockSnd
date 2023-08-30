@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @State var selectedTab = "home"
-    let tabs = ["home", "credit-card", "docs"]
+    let tabs = ["home", "catalog", "create", "settings"]
 
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
@@ -36,28 +36,30 @@ struct TabBarView: View {
             .padding(.horizontal, 25)
             .padding(.bottom, 35)
             .padding(.top, 10)
-            .background(Color.customColor11)
-            .background(Color.customColor7.shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: -5))
+            .background(Color.customColor2)
+            .background(Color.customColor7.shadow(color: .white.opacity(0.28), radius: 5, x: 0, y: -5))
             .cornerRadius(20)
+            .shadow(color: .black.opacity(0.28), radius: 30)
         }
         .ignoresSafeArea()
     }
     
     func contentView(for tab: String) -> some View {
         switch tab {
-        case "credit-card":
+        case "catalog":
             return AnyView(StoreView())
         case "home":
             return AnyView(HomeView())
-        case "docs":
+        case "settings":
             return AnyView(SettingsView())
+        case "create":
+            return AnyView(ClockCreatorView())
         default:
             return AnyView(EmptyView())
         }
     }
     
 }
-
 
 struct TabButton: View {
     var image: String

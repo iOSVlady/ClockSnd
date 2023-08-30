@@ -13,6 +13,17 @@ extension Font {
         case nunito = "Nunito"
         case jost = "Jost"
         // Add more font families as needed
+        
+        var intValue: Int {
+            switch self {
+            case .jost: return 0
+            case .nunito: return 2
+            }
+        }
+        
+        static var allFontFamilies: [FontFamily] {
+            return [.jost, .nunito]
+        }
     }
 
     enum FontStyle: String {

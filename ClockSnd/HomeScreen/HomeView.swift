@@ -8,55 +8,62 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var clockShown = false
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    @State var isClockShown: Bool = false
+
     var body: some View {
         VStack {
             HStack {
-                SndText(family: .jost, style: .extraBold, size: 32, "Home")
+                SndText(family: .nunito, style: .extraBold, size: 32, "Home")
                 Spacer()
             }
             .padding(.leading, 20)
-
-            Spacer()
+            .padding(.bottom, 5)
+            .padding(.top, 10)
             
-            Button {
-                withAnimation {
-                    clockShown = true
+            VStack(spacing: 0) {
+                HStack {
+                    SndText(family: .nunito, style: .extraBold, size: 22, "Resent Clocks:")
+                        .padding(.leading, 20)
+                        .padding(.bottom, 5)
+
+                    Spacer()
                 }
-            } label: {
-                ScrollView {
-                        HStack {
-                            ClockView(clockShown: $clockShown)
-                                .cornerRadius(20)
-                                .disabled(true)
-                                .scaleEffect(0.2)
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(viewModel.arrayOfClockConfigurations, id: \.self) { item in
                             
-                        }
-                        .padding()
-                        .background(.white)
-                        .foregroundColor(.customColor11)
-                        
-                        HStack {
-                            ClockView(clockShown: $clockShown)
+                            Button {
+                                withAnimation {
+                                    viewModel.clockView = ClockView(viewModel: ClockViewModel(
+                                                                    backgroundColor: item.backgroundColor,
+                                                                    textColor: item.textColor,
+                                                                    font: Font.FontFamily(rawValue: item.font) ?? .nunito,
+                                                                    size: item.size,
+                                                                    style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
+                                                                    isClockShown: $isClockShown)
+                                    isClockShown = true
+                                }
+                            } label: {
+                                ClockView(viewModel: ClockViewModel(
+                                          backgroundColor: item.backgroundColor,
+                                          textColor: item.textColor,
+                                          font: Font.FontFamily(rawValue: item.font) ?? .nunito,
+                                          size: item.size,
+                                          style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
+                                          isClockShown: $isClockShown)
                                 .cornerRadius(20)
                                 .disabled(true)
-                                .scaleEffect(0.2)
-                                
+                                .shadow(radius: 5)
+                            }
                         }
-                        .padding()
-                        .background(.white)
-                        .foregroundColor(.customColor11)
-                    
-                    
+                    }
+                    .scaleEffect(0.95)
                 }
             }
-            
-           
-
-
-        Spacer()
-        }.fullScreenCover(isPresented: $clockShown) {
-            ClockView(clockShown: $clockShown)
+            Spacer()
+        }.fullScreenCover(isPresented: $isClockShown) {
+            viewModel.clockView
         }
     }
 }

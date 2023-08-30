@@ -8,21 +8,35 @@
 import SwiftUI
 
 struct StoreView: View {
-    private var symbols = ["keyboard", "hifispeaker.fill", "printer.fill", "tv.fill", "desktopcomputer", "headphones", "tv.music.note", "mic", "plus.bubble", "video"]
-
-    private var colors: [Color] = [.yellow, .purple, .green]
+    private let viewModel = HomeViewModel()
+    @State var clockShown = false
 
     private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: gridItemLayout, spacing: 20) {
-                ForEach((0...9999), id: \.self) {
-                    Image(systemName: symbols[$0 % symbols.count])
-                        .font(.system(size: 30))
-                        .frame(width: 50, height: 50)
-                        .background(colors[$0 % colors.count])
-                        .cornerRadius(10)
+        VStack(spacing: 0) {
+            SndText(family: .nunito, style: .extraBold, size: 32, "Catalog")
+                .padding(.bottom, 5)
+                .padding(.top, 10)
+            Rectangle()
+                        .frame(height: 2)
+                        .foregroundColor(Color.gray.opacity(0.2))
+                        .shadow(radius: 5)
+
+            ScrollView {
+                LazyVGrid(columns: gridItemLayout) {
+                    ForEach(viewModel.arrayOfClockConfigurations, id: \.self) { item in
+                        ClockView(viewModel: ClockViewModel(
+                                  backgroundColor: item.backgroundColor,
+                                  textColor: item.textColor,
+                                  font: Font.FontFamily(rawValue: item.font) ?? .nunito,
+                                  size: item.size/2, style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
+                                  isClockShown: $clockShown)
+                        .cornerRadius(20)
+                        .disabled(true)
+                        .shadow(radius: 5)
+                        .padding(.top, 5)
+                    }
                 }
             }
         }

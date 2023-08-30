@@ -7,9 +7,21 @@
 
 import SwiftUI
 
-struct SettingsView: View {
-    @State private var isSignedIn = true
+enum SettingsSection: Identifiable {
+    case account
+    case appearance
+    case help
+    case about
+    
+    var id: SettingsSection { self }
+}
 
+struct SettingsView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    @State private var isSignedIn = true
+    @State private var selectedSection: SettingsSection? = nil
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -22,19 +34,15 @@ struct SettingsView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     settingsButton(label: "Account") {
-                        // Дії для розділу "Account"
-                    }
-                    
-                    settingsButton(label: "Appearance") {
-                        // Дії для розділу "Appearance"
+                        selectedSection = .account
                     }
                     
                     settingsButton(label: "Help") {
-                        // Дії для розділу "Help"
+                        selectedSection = .help
                     }
                     
                     settingsButton(label: "About") {
-                        // Дії для розділу "About"
+                        selectedSection = .about
                     }
                     
                     if isSignedIn {
@@ -42,8 +50,26 @@ struct SettingsView: View {
                             signOut()
                         }
                     }
+                    
                 }
                 .padding()
+            }
+            
+        }.fullScreenCover(item: $selectedSection) { section in
+            NavigationView { // Embed each child view in a NavigationView
+                settingsSectionView(section: section)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                                selectedSection = nil // Dismiss the child view
+                            }) {
+                                Image(systemName: "arrow.left")
+                                    .imageScale(.large)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
             }
         }
     }
@@ -59,18 +85,42 @@ struct SettingsView: View {
                 
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
-            }.padding(.horizontal, 15)
+            }
+            .padding(.horizontal, 15)
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 15)
-        .background(Color.white)
+        .background(Color.clear)
         .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.clear)
+                .background(
+                    Color.white
+                        .opacity(colorScheme == .dark ? 0.1 : 0.9)
+                )
+                .cornerRadius(10)
+        )
+        .shadow(color: colorScheme == .dark ? Color.customColor4 : Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
     }
     
     func signOut() {
-        // Виконайте дії виходу з облікового запису тут
         isSignedIn = false
+    }
+    
+    func settingsSectionView(section: SettingsSection) -> some View {
+        // Return the appropriate view based on the selected section
+        switch section {
+        case .account:
+            return AnyView(AccountView())
+        case .appearance:
+            return AnyView(AppearanceView())
+        case .help:
+            return AnyView(HelpView())
+        case .about:
+            return AnyView(AboutView())
+        }
     }
 }
 
