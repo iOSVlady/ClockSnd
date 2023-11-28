@@ -19,8 +19,9 @@ enum SettingsSection: Identifiable {
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    @State private var isSignedIn = true
+    @State private var isSignedIn: Bool = true
     @State private var selectedSection: SettingsSection? = nil
+    @State private var isAnimating: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,7 +33,7 @@ struct SettingsView: View {
             }
             
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 14) {
                     settingsButton(label: "Account") {
                         selectedSection = .account
                     }
@@ -55,7 +56,8 @@ struct SettingsView: View {
                 .padding()
             }
             
-        }.fullScreenCover(item: $selectedSection) { section in
+        }
+        .fullScreenCover(item: $selectedSection) { section in
             NavigationView { // Embed each child view in a NavigationView
                 settingsSectionView(section: section)
                     .navigationBarTitleDisplayMode(.inline)
@@ -66,10 +68,21 @@ struct SettingsView: View {
                             }) {
                                 Image(systemName: "arrow.left")
                                     .imageScale(.large)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .light ? .black : .white)
                             }
                         }
                     }
+            }
+        }
+        .opacity(isAnimating ? 1 : 0)
+        .onAppear {
+            withAnimation {
+                isAnimating = true
+            }
+        }
+        .onDisappear {
+            withAnimation {
+                isAnimating = false
             }
         }
     }

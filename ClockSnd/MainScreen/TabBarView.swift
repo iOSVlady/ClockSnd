@@ -21,9 +21,7 @@ struct TabBarView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .animation(.easeInOut, value: 1)
-            .transition(.slide)
-            
+        
             HStack(spacing: 0) {
                 ForEach(tabs, id: \.self) { image in
                     TabButton(image: image, selectedTab: $selectedTab)
@@ -44,18 +42,19 @@ struct TabBarView: View {
         .ignoresSafeArea()
     }
     
+    @ViewBuilder
     func contentView(for tab: String) -> some View {
         switch tab {
         case "catalog":
-            return AnyView(StoreView())
+            StoreView()
         case "home":
-            return AnyView(HomeView())
+            HomeView()
         case "settings":
-            return AnyView(SettingsView())
+            SettingsView()
         case "create":
-            return AnyView(ClockCreatorView())
+            ClockCreatorView()
         default:
-            return AnyView(EmptyView())
+            EmptyView()
         }
     }
     
@@ -66,11 +65,7 @@ struct TabButton: View {
     @Binding var selectedTab: String
     var body: some View {
         Button(action: {
-            withAnimation {
-                print("\(image)")
-                print("\(selectedTab)")
-                selectedTab = image
-            }
+            selectedTab = image
         }) {
             VStack {
                 Image(image)

@@ -13,8 +13,10 @@ import FirebaseFirestore
 enum CustomizerSelector {
     case color
     case size
+    case spacing
     case font
     case save
+    case fontStyle
 }
 
 enum PickerColor {
@@ -28,12 +30,14 @@ class ClockCreatorViewModel: ObservableObject {
     @Published var backgroundColor: CGColor = .init(red: 240/255, green: 230/255, blue: 220/255, alpha: 1)
     @Published var fontColor: CGColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
     @Published var font: Font.FontFamily = .nunito
+    @Published var fontStyle: Font.FontStyle = .regular
     @Published var size: Int = 100
-
-    
+    @Published var spacing: Int = 5
     @Published var selectedPicker: PickerColor = .background
     @Published var selectedCustomizer: CustomizerSelector = .color
     
+    let clockManager: GlobalClockManager = GlobalClockManager.shared
+
     private var db = Firestore.firestore()
 
 
@@ -56,6 +60,12 @@ class ClockCreatorViewModel: ObservableObject {
                 print("Document added.")
             }
         }
+    }
+    
+    func saveClock() {
+        let newClock = SndClock(font: font.rawValue, size: String(size), spacing: String(spacing), fontStyle: fontStyle.rawValue, textColor: fontColor.toHexWithAlpha(), backgroundColor: backgroundColor.toHexWithAlpha())
+        clockManager.realmManager.addClock(clock: newClock, config: .savedClocks)
+        clockManager.syncClocksWithDB()
     }
 }
 

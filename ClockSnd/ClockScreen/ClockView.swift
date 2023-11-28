@@ -9,36 +9,47 @@ import SwiftUI
 import Combine
 
 struct ClockView: View {
-    @ObservedObject var viewModel: ClockViewModel
-    @Binding var isClockShown: Bool
-    
+    @ObservedObject var clockModel: SndClock
+    @Environment(\.presentationMode) var presentationMode
+    @State var showInstruments: Bool = false
+    @State var rotationIndex: Int = 0
+    @State var hour: String = "00"
+    @State var minute: String = "00"
+    @State var updateTimer: Timer?
+    var scaleEffect: CGFloat = 1
+
     var body: some View {
         ZStack(alignment: .bottom) {
-            viewModel.backgroundColor
+            clockModel.backgroundColor.colorFromHexWithOpacity()
                 .ignoresSafeArea()
             
-            if viewModel.showInstruments {
-                GeometryReader { geometry in
-                    clockView.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                }.transition(.identity)
-            } else {
-                clockView.transition(.identity)
-            }
-
             GeometryReader { geometry in
-                ZStack {
-                    instrumentsView
-                        .position(x: geometry.size.width / 2, y: 50)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                }
+                clockView
+                    .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .opacity(viewModel.showInstruments ? 1 : 0)
-            .transition(.opacity)
+            
+            VStack {
+                instrumentsView
+                Spacer()
+            }.opacity(showInstruments ? 1 : 0)
         }
         .onTapGesture {
             withAnimation() {
-                viewModel.showInstruments.toggle()
+                showInstruments.toggle()
             }
+        }
+        .onAppear {
+            updateTime()
+            updateTimer = {
+               Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
+                                    block: {_ in
+                   updateTime()
+               })
+            }()
+        }
+        .onDisappear {
+            updateTimer?.invalidate()
+            updateTimer = nil
         }
         .statusBar(hidden: true)
     }
@@ -47,73 +58,70 @@ struct ClockView: View {
 extension ClockView {
     
     var clockView: some View {
-        Group {
-            VStack(spacing: 0) {
-                Spacer()
-                hourView
-                dividerView
-                    .frame(width: 80, height: 100)
-                    .padding(.vertical, -25)
-                minutesView
-                Spacer()
-                }
-            .onAppear {
-                let _ = self.viewModel.updateTimer
-            }
-            
-        }
+        VStack(spacing: 0) {
+            Spacer()
+            hourView
+                .padding(.bottom, clockModel.spacing.toCGFloat())
+            dividerView
+                .frame(width: 80, height: 100)
+                .padding(.vertical, -25)
+            minutesView
+                .padding(.top, clockModel.spacing.toCGFloat())
+
+            Spacer()
+        }.scaleEffect(clockModel.size.toCGFloat() * 0.01 * scaleEffect)
     }
     
     var hourView: some View {
         Group {
-            if viewModel.rotationIndex == 1 {
+            if rotationIndex == 1 {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, hour)
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                 }.rotationEffect(.degrees(90))
-            } else if viewModel.rotationIndex == 2 {
+            } else if rotationIndex == 2 {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, minute)
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                 }.rotationEffect(.degrees(270))
             } else {
-                SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.hour)
-                    .foregroundColor(viewModel.textColor)
+                SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, hour)
+                    .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
             }
         }
     }
     
     var minutesView: some View {
         Group {
-            if viewModel.rotationIndex == 1 {
+            if rotationIndex == 1 {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, minute)
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                 }.rotationEffect(.degrees(90))
-            } else if viewModel.rotationIndex == 2 {
+            } else if rotationIndex == 2 {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, hour)
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                 }.rotationEffect(.degrees(270))
             } else {
-                SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, viewModel.minute)
-                    .foregroundColor(viewModel.textColor)
+                SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, minute)
+                    .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
             }
         }
     }
     
     var dividerView: some View {
         Group {
-            if viewModel.rotationIndex == 1 {
+            if rotationIndex == 1 {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, ":")
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, ":")
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                         .padding(.bottom, 40)
                 }.rotationEffect(.degrees(90))
-            } else if viewModel.rotationIndex == 2  {
+            } else if rotationIndex == 2  {
                 HStack {
-                    SndText(family: viewModel.font, style: viewModel.style, size: viewModel.size, ":")
-                        .foregroundColor(viewModel.textColor)
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: Font.FontStyle(rawValue: clockModel.fontStyle) ?? .regular, size: 250, ":")
+                        .foregroundColor(clockModel.textColor.colorFromHexWithOpacity())
                         .padding(.bottom, 40)
                 }.rotationEffect(.degrees(270))
             }
@@ -125,35 +133,42 @@ extension ClockView {
             HStack {
                 Button {
                     withAnimation {
-                        isClockShown = false
+                        updateTimer?.invalidate()
+                        updateTimer = nil
+                        presentationMode.wrappedValue.dismiss()
                     }
                 } label: {
-                    SndText(family: viewModel.font, style: .extraBold, "Back")
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: .extraBold, "Back")
                 }
                 .font(.headline)
-                .foregroundColor(viewModel.backgroundColor)
+                .foregroundColor(clockModel.backgroundColor.colorFromHexWithOpacity())
                 .padding()
-                .background(viewModel.textColor)
+                .background(clockModel.textColor.colorFromHexWithOpacity())
                 .cornerRadius(10)
                 Spacer()
                 Button {
                     withAnimation {
-                        if viewModel.rotationIndex < 2 {
-                            viewModel.rotationIndex += 1
+                        if rotationIndex < 2 {
+                            rotationIndex += 1
                         } else {
-                            viewModel.rotationIndex = 0
+                            rotationIndex = 0
                         }
                     }
                 } label: {
-                    SndText(family: viewModel.font, style: .extraBold, "Orientation")
+                    SndText(family: Font.FontFamily(rawValue: clockModel.font) ?? .nunito, style: .extraBold, "Orientation")
                 }
                 .font(.headline)
-                .foregroundColor(viewModel.backgroundColor)
+                .foregroundColor(clockModel.backgroundColor.colorFromHexWithOpacity())
                 .padding()
-                .background(viewModel.textColor)
+                .background(clockModel.textColor.colorFromHexWithOpacity())
                 .cornerRadius(10)
             }
             .padding()
         }
+    }
+    
+    func updateTime() {
+        hour = Date().formatted(Date.FormatStyle().hour(.twoDigits(amPM: .omitted)))
+        minute = Date().formatted(Date.FormatStyle().minute(.twoDigits))
     }
 }

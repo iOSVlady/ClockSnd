@@ -24,5 +24,6 @@ struct SndText: View {
     var body: some View {
         Text(text)
             .font(Font.customFont(family: family, style: style, size: size))
+            .fixedSize()
     }
 }

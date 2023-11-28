@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     @State var isClockShown: Bool = false
+    @State var isAnimating: Bool = false
+    @StateObject var clockManager: GlobalClockManager = GlobalClockManager.shared
 
     var body: some View {
         VStack {
@@ -31,28 +34,19 @@ struct HomeView: View {
                 }
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(viewModel.arrayOfClockConfigurations, id: \.self) { item in
-                            
+                        ForEach(clockManager.arrayOfClockConfigurations.reversed(), id: \.self) { item in
                             Button {
                                 withAnimation {
-                                    viewModel.clockView = ClockView(viewModel: ClockViewModel(
-                                                                    backgroundColor: item.backgroundColor,
-                                                                    textColor: item.textColor,
-                                                                    font: Font.FontFamily(rawValue: item.font) ?? .nunito,
-                                                                    size: item.size,
-                                                                    style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
-                                                                    isClockShown: $isClockShown)
+                                    clockManager.clockView = ClockView(clockModel: item)
                                     isClockShown = true
                                 }
                             } label: {
-                                ClockView(viewModel: ClockViewModel(
-                                          backgroundColor: item.backgroundColor,
-                                          textColor: item.textColor,
-                                          font: Font.FontFamily(rawValue: item.font) ?? .nunito,
-                                          size: item.size,
-                                          style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
-                                          isClockShown: $isClockShown)
-                                .cornerRadius(20)
+                                ClockView(clockModel: SndClock(font: item.font, size: "150", spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, backgroundColor: item.backgroundColor), scaleEffect: 0.6)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(colorScheme == .light ? .clear : Color.customColor5, lineWidth: 1)
+                                )
                                 .disabled(true)
                                 .shadow(radius: 5)
                             }
@@ -62,14 +56,21 @@ struct HomeView: View {
                 }
             }
             Spacer()
-        }.fullScreenCover(isPresented: $isClockShown) {
-            viewModel.clockView
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        .fullScreenCover(isPresented: $isClockShown) {
+            clockManager.clockView
+        }
+        .opacity(isAnimating ? 1 : 0)
+        .onAppear {
+            withAnimation {
+                isAnimating = true
+            }
+        }
+        .onDisappear {
+            withAnimation {
+                isAnimating = false
+            }
+        }
+        
     }
 }

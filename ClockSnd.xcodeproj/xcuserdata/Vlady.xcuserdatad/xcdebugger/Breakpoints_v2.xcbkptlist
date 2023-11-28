@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0FCFC5AD-3783-4BA2-AFFA-D87E80681FED"
+            uuid = "1CBCF18A-5088-43C6-A045-7634EB00B914"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClockSnd/MainScreen/TabBarView.swift"
+            filePath = "ClockSnd/StoreScreen/StoreView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -23,77 +23,1313 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1F01B0A2-3839-444E-BA97-F5C97335533B"
+            uuid = "08D83FA3-4586-427B-A9E4-E63E0F4B871A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClockSnd/MainScreen/TabBarView.swift"
+            filePath = "ClockSnd/HomeScreen/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "body"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "clockView"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "1F01B0A2-3839-444E-BA97-F5C97335533B - 291737914d0dcacf"
+                  uuid = "08D83FA3-4586-427B-A9E4-E63E0F4B871A - ad436c5637dd1940"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.transition(SwiftUI.AnyTransition) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in ClockSnd.TabBarView.body.getter : some"
+                  symbolName = "ClockSnd.HomeViewModel.clockView.didset : Swift.Optional&lt;ClockSnd.ClockView&gt;"
                   moduleName = "ClockSnd"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Vlady/Desktop/ClockSnd/ClockSnd/MainScreen/TabBarView.swift"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/HomeViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "868">
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "184">
                </Location>
                <Location
-                  uuid = "1F01B0A2-3839-444E-BA97-F5C97335533B - 2f869aedcbf56c63"
+                  uuid = "08D83FA3-4586-427B-A9E4-E63E0F4B871A - 506474b644dce20d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, &lt;&lt;opaque return type of SwiftUI.View.tag&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Hashable&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.transition(SwiftUI.AnyTransition) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in ClockSnd.TabBarView.body.getter : some"
+                  symbolName = "ClockSnd.GlobalClockViewModel.clockView.didset : Swift.Optional&lt;ClockSnd.ClockView&gt;"
                   moduleName = "ClockSnd"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Vlady/Desktop/ClockSnd/ClockSnd/MainScreen/TabBarView.swift"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/HomeViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "176">
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "184">
                </Location>
                <Location
-                  uuid = "1F01B0A2-3839-444E-BA97-F5C97335533B - 291737914d0dcab0"
+                  uuid = "08D83FA3-4586-427B-A9E4-E63E0F4B871A - 506474b644dce26a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.transition(SwiftUI.AnyTransition) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in ClockSnd.TabBarView.body.getter : some"
+                  symbolName = "ClockSnd.GlobalClockViewModel.clockView.didset : Swift.Optional&lt;ClockSnd.ClockView&gt;"
                   moduleName = "ClockSnd"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Vlady/Desktop/ClockSnd/ClockSnd/MainScreen/TabBarView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "868">
-               </Location>
-               <Location
-                  uuid = "1F01B0A2-3839-444E-BA97-F5C97335533B - 2f869aedcbf56c42"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, &lt;&lt;opaque return type of SwiftUI.View.tag&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Hashable&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.transition(SwiftUI.AnyTransition) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in ClockSnd.TabBarView.body.getter : some"
-                  moduleName = "ClockSnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Vlady/Desktop/ClockSnd/ClockSnd/MainScreen/TabBarView.swift"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/HomeViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "176">
+                  offsetFromSymbolStart = "456">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19C10483-05EC-4284-A694-C2AE6E708AB7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "SndClock"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "093BC38B-7A6B-4D25-BD8E-39B328B70BCF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Components/Extensions/Color+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "CGColor"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11892167-738B-4328-9534-A4823467D1A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ClockCreatorView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "11892167-738B-4328-9534-A4823467D1A2 - 5146dfa69922b28b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of ClockSnd.ClockCreatorView.viewModel : ClockSnd.ClockCreatorViewModel"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "11892167-738B-4328-9534-A4823467D1A2 - ab73721e3e52010f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorView.viewModel.getter : ClockSnd.ClockCreatorViewModel"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "11892167-738B-4328-9534-A4823467D1A2 - e03b04ed84746222"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorView.$viewModel.getter : SwiftUI.ObservedObject&lt;ClockSnd.ClockCreatorViewModel&gt;.Wrapper"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "11892167-738B-4328-9534-A4823467D1A2 - cbe2126b70b41a95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 2 of ClockSnd.ClockCreatorView.init(colorScheme: SwiftUI.Environment&lt;SwiftUI.ColorScheme&gt;, isClockShown: Swift.Bool, viewModel: @autoclosure () -&gt; ClockSnd.ClockCreatorViewModel, divider: Swift.Double) -&gt; ClockSnd.ClockCreatorView"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "ClockCreatorViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - e2abffd7a3be3bdc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of ClockSnd.ClockCreatorViewModel.size : CoreGraphics.CGFloat"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - e2cd1ef5b5c79c24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.size.getter : CoreGraphics.CGFloat"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - 2297eb498fbe9c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.size.setter : CoreGraphics.CGFloat"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - 2917ed40acd1ac1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.size.modify : CoreGraphics.CGFloat"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - 238b3f9f6c808c7a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.size.modify : CoreGraphics.CGFloat with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - c09ccb2e2b120aae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$size.getter : Combine.Published&lt;CoreGraphics.CGFloat&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - 695efa3524537b19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$size.setter : Combine.Published&lt;CoreGraphics.CGFloat&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - 977481eba427c20e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$size.modify : Combine.Published&lt;CoreGraphics.CGFloat&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "BFB3D961-C9A7-4916-ADCD-C3D1E93D3675 - b0b7406b0e92aa15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$size.modify : Combine.Published&lt;CoreGraphics.CGFloat&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9374B43D-77C7-4EED-833C-AA704522FB6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "minutesView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E317E7E0-543F-4D19-B94A-C8E08432729E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "minutesView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "ClockCreatorViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - 12484557cec90515"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of ClockSnd.ClockCreatorViewModel.font : SwiftUI.Font.FontFamily"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - 80ab94f6a385b4da"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.font.getter : SwiftUI.Font.FontFamily"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - 62155ace0920c448"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.font.setter : SwiftUI.Font.FontFamily"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - 27b72fe8eb829649"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.font.modify : SwiftUI.Font.FontFamily"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - cdf6c15542fb2207"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.font.modify : SwiftUI.Font.FontFamily with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - 406fe76b35d25c6e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$font.getter : Combine.Published&lt;SwiftUI.Font.FontFamily&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - e02df0b730cc9d9e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$font.setter : Combine.Published&lt;SwiftUI.Font.FontFamily&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - ce11a502526396d3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$font.modify : Combine.Published&lt;SwiftUI.Font.FontFamily&gt;.Publisher"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "48C5E9AD-3649-4A50-A89A-4D9D928F2C89 - fea40243a9454ed6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.$font.modify : Combine.Published&lt;SwiftUI.Font.FontFamily&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AACBF6BD-381C-4497-AE4B-C3A865DE18A7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "addClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AACBF6BD-381C-4497-AE4B-C3A865DE18A7 - c23e960f18ae9368"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "AACBF6BD-381C-4497-AE4B-C3A865DE18A7 - 39a3930eb42b0c17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ClockSnd.SndClockRealm) -&gt; Swift.Bool in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "AACBF6BD-381C-4497-AE4B-C3A865DE18A7 - 39a3930eb42b0c17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ClockSnd.SndClockRealm) -&gt; Swift.Bool in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31D49A17-3E25-4750-AFF9-05C7F0B2EA51"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "addClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "31D49A17-3E25-4750-AFF9-05C7F0B2EA51 - 50d2767ab87e174d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "31D49A17-3E25-4750-AFF9-05C7F0B2EA51 - 50d2767ab87e1645"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "31D49A17-3E25-4750-AFF9-05C7F0B2EA51 - 50d2767ab87e1645"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E076158D-4D4D-45EA-86FE-57F17FE5F820"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "addClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E076158D-4D4D-45EA-86FE-57F17FE5F820 - c23e960f18ae9349"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "E076158D-4D4D-45EA-86FE-57F17FE5F820 - 50d2767ab87e174d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.addClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "deleteClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - bfd8ca54788d4dc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - a601a550e669a7d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ClockSnd.SndClockRealm) -&gt; Swift.Bool in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - a601a550e669a7d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ClockSnd.SndClockRealm) -&gt; Swift.Bool in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - bfd8ca54788d4e30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - a601a550e669a420"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ClockSnd.SndClockRealm) -&gt; Swift.Bool in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "E4F55DDD-7E34-4DD0-A234-6FA641F1A8EE - bfd8ca54788d4e30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E47A000-BB20-4C89-833F-0B04041730BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "deleteClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E47A000-BB20-4C89-833F-0B04041730BB - 9bbb5e5519b985e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "8E47A000-BB20-4C89-833F-0B04041730BB - 9bbb5e5519b98793"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8254065F-00F8-422A-8C69-22961AB85716"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "saveClock()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8254065F-00F8-422A-8C69-22961AB85716 - 728f735f5baa4acd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "8254065F-00F8-422A-8C69-22961AB85716 - 728f735f5baa4a8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "8254065F-00F8-422A-8C69-22961AB85716 - 728f735f5baa4a8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8366CF5-44D2-4F19-BD6C-C88CD034856E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "saveClock()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C8366CF5-44D2-4F19-BD6C-C88CD034856E - 728f735f5baa4a8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "720">
+               </Location>
+               <Location
+                  uuid = "C8366CF5-44D2-4F19-BD6C-C88CD034856E - 728f735f5baa4a49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "C8366CF5-44D2-4F19-BD6C-C88CD034856E - 728f735f5baa4a49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "600">
+               </Location>
+               <Location
+                  uuid = "C8366CF5-44D2-4F19-BD6C-C88CD034856E - 728f735f5baa4a49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.ClockCreatorViewModel.saveClock() -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/ClockCreatorScreen/ClockCreatorViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51424100-F68C-4DDA-902F-05F33EB598F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/StoreScreen/StoreView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61843FC5-21D8-42AB-9ABC-411B8A0A4F1E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockCreatorScreen/ClockCreatorView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/HomeScreen/GlobalClockManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "clockView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90 - 57c126c41d9d5c55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.getter : Swift.Optional&lt;ClockSnd.ClockView&gt;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/GlobalClockManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90 - 2d70391b94c6ba3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.setter : Swift.Optional&lt;ClockSnd.ClockView&gt;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90 - 8314f2184b0ece4a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.modify : Swift.Optional&lt;ClockSnd.ClockView&gt;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/GlobalClockManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90 - 645e4f6f4025bc5e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.modify : Swift.Optional&lt;ClockSnd.ClockView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "B0B24F51-611A-48C2-8B28-E7E4A8474C90 - 746354a2871972e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.() -&gt; ClockSnd.GlobalClockManager.init() -&gt; ClockSnd.GlobalClockManager"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/GlobalClockManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97734443-2703-465C-8B97-C6C3E52D64FC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/HomeScreen/GlobalClockManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "clockView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "947D3C89-EFAE-467C-9B23-C2E458ADE589"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/HomeScreen/GlobalClockManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "clockView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "947D3C89-EFAE-467C-9B23-C2E458ADE589 - 5792be172aeb067f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.didset : Swift.Optional&lt;ClockSnd.ClockView&gt;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/GlobalClockManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "716">
+               </Location>
+               <Location
+                  uuid = "947D3C89-EFAE-467C-9B23-C2E458ADE589 - 5792be172aeb067f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.GlobalClockManager.clockView.didset : Swift.Optional&lt;ClockSnd.ClockView&gt;"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/HomeScreen/GlobalClockManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "744">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F16D477-013F-408E-BA21-1513CF3B728F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/HomeScreen/GlobalClockManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "syncClocksWithDB()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14AC42C5-64FB-4C00-96A7-4A4ADF40C5C1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "clockView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6CD8687-34B6-48AF-8AB5-D5CE444ECF71"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "clockView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE5C2868-C5E2-4E8E-BB00-7EB00DFD9F76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D082D672-91DD-42D6-86F8-B3CFB60C87EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/ClockScreen/ClockView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F2113E4-4427-43FC-B7F9-185B565C8008"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClockSnd/Persistance/RealmData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "deleteClock(clock:config:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F2113E4-4427-43FC-B7F9-185B565C8008 - bfd8ca54788d4e13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "524">
+               </Location>
+               <Location
+                  uuid = "0F2113E4-4427-43FC-B7F9-185B565C8008 - bfd8ca54788d4e13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  uuid = "0F2113E4-4427-43FC-B7F9-185B565C8008 - 9bbb5e5519b98793"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in ClockSnd.RealmManager.deleteClock(clock: ClockSnd.SndClock, config: ClockSnd.ConfigsRealm) -&gt; ()"
+                  moduleName = "ClockSnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vlady/ClockSnd/ClockSnd/Persistance/RealmData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>

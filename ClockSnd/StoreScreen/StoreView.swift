@@ -8,43 +8,61 @@
 import SwiftUI
 
 struct StoreView: View {
-    private let viewModel = HomeViewModel()
     @State var clockShown = false
-
-    private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
-
+    @State var isAnimating: Bool = false
+    var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
+    @StateObject var clockManager: GlobalClockManager = GlobalClockManager.shared
+    
     var body: some View {
         VStack(spacing: 0) {
-            SndText(family: .nunito, style: .extraBold, size: 32, "Catalog")
+            SndText(family: .nunito, style: .extraBold, size: 32, "Your saved clocks")
                 .padding(.bottom, 5)
                 .padding(.top, 10)
             Rectangle()
-                        .frame(height: 2)
-                        .foregroundColor(Color.gray.opacity(0.2))
-                        .shadow(radius: 5)
-
+                .frame(height: 2)
+                .foregroundColor(Color.gray.opacity(0.2))
+                .shadow(radius: 5)
+            
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
-                    ForEach(viewModel.arrayOfClockConfigurations, id: \.self) { item in
-                        ClockView(viewModel: ClockViewModel(
-                                  backgroundColor: item.backgroundColor,
-                                  textColor: item.textColor,
-                                  font: Font.FontFamily(rawValue: item.font) ?? .nunito,
-                                  size: item.size/2, style: Font.FontStyle(rawValue: item.fontStyle) ?? .regular),
-                                  isClockShown: $clockShown)
-                        .cornerRadius(20)
-                        .disabled(true)
-                        .shadow(radius: 5)
-                        .padding(.top, 5)
+                    ForEach(clockManager.savedClocks.reversed(), id: \.self) { item in
+                        ClockView(clockModel: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, backgroundColor: item.backgroundColor), scaleEffect: 0.3)
+                            .frame(height: 250)
+                            .frame(minWidth: 100)
+//                            .scaledToFit()
+                            .cornerRadius(20)
+                            .disabled(true)
+                            .shadow(radius: 5)
+                            .padding(.top, 5)
+                            .contextMenu {
+                                Button("Delete") {
+                                    clockManager.realmManager.deleteClock(clock: item, config: .savedClocks)
+                                    clockManager.syncClocksWithDB()
+                                }
+                            }
+                            .onTapGesture {
+                                withAnimation {
+                                    clockManager.clockView = ClockView(clockModel: item)
+                                    clockShown = true
+                                }
+                            }
                     }
-                }
+                }.padding(.horizontal, 5)
             }
         }
-    }
-}
-
-struct StoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        StoreView()
+        .opacity(isAnimating ? 1 : 0)
+        .onAppear {
+            withAnimation {
+                isAnimating = true
+            }
+        }
+        .onDisappear {
+            withAnimation {
+                isAnimating = false
+            }
+        }
+        .fullScreenCover(isPresented: $clockShown) {
+            clockManager.clockView
+        }
     }
 }

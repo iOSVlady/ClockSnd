@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State private var isAnimating: Bool = false
     @Binding var onboardingShown: Bool
     var body: some View {
         ZStack{
-            Color.customColor11
+            Color.clear
             VStack {
                 Spacer()
                 
@@ -20,14 +21,18 @@ struct OnboardingView: View {
                     SndText(style: .extraBold, size: 38, "Wellcome ")
                     SndText(style: .extraBold, size: 32, "to")
                 }
-                .foregroundColor(.customColor1)
-                
+                .foregroundColor(colorScheme == .light ? .black : .white)
+
                 Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 5)
+                    )
                     .scaleEffect(isAnimating ? 1.0 : 0.3)
-                
                 Spacer()
                 
                 Button(action: {
@@ -38,9 +43,9 @@ struct OnboardingView: View {
                 }) {
                     SndText(style: .bold, "Get Started")
                         .font(.headline)
-                        .foregroundColor(.customColor11)
+                        .foregroundColor(colorScheme == .light ? .white : .black)
                         .padding()
-                        .background(Color.customColor1)
+                        .background(colorScheme == .light ? .black : .white)
                         .cornerRadius(10)
                 }
                 .padding(.bottom, 100)
@@ -49,7 +54,7 @@ struct OnboardingView: View {
             .onAppear {
                 isAnimating = false
                 withAnimation(.easeOut(duration: 1.5)) {
-                    self.isAnimating = true
+                    isAnimating = true
                 }
             }
         }.ignoresSafeArea()

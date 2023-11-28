@@ -11,6 +11,7 @@ import FirebaseAuth
 class AccountViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var userName: String = ""
     @Published var showAlert = false
     @Published var alertMessage = ""
     
@@ -34,5 +35,9 @@ class AccountViewModel: ObservableObject {
             }
             self.showAlert = true
         }
+    }
+    
+    func account() {
+        
     }
 }
