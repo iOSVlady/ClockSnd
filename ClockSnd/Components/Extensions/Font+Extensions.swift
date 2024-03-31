@@ -10,19 +10,51 @@ import SwiftUI
 
 extension Font {
     enum FontFamily: String {
+        case rubikScribble = "Rubik_Scribble"
+        case merriweather = "Merriweather"
+        case ubuntu = "Ubuntu"
+        case workSans = "Work_Sans"
+        case workbench = "Workbench"
+        case bebasNeue = "Bebas_Neue"
+        case abel = "Abel"
+        case bitter = "Bitter"
+        case eduNSWACTFoundation = "Edu_NSW_ACT_Foundation"
+        case zillaSlab = "Zilla_Slab"
+        case caveat = "Caveat"
+        case abrilFatface = "Abril_Fatface"
+        case orbitron = "Orbitron"
+        case acme = "Acme"
+        case concertOne = "Concert_One"
         case nunito = "Nunito"
         case jost = "Jost"
+        case roboto = "Roboto"
         // Add more font families as needed
         
         var intValue: Int {
             switch self {
             case .jost: return 0
-            case .nunito: return 2
+            case .nunito: return 1
+            case .roboto: return 2
+            case .rubikScribble: return 3
+            case .merriweather: return 4
+            case .ubuntu: return 5
+            case .workSans: return 6
+            case .workbench: return 7
+            case .bebasNeue: return 8
+            case .abel: return 9
+            case .bitter: return 10
+            case .eduNSWACTFoundation: return 11
+            case .zillaSlab: return 12
+            case .caveat: return 13
+            case .abrilFatface: return 14
+            case .orbitron: return 15
+            case .acme: return 16
+            case .concertOne: return 17
             }
         }
         
         static var allFontFamilies: [FontFamily] {
-            return [.jost, .nunito]
+            return [.jost, .nunito, .roboto, .rubikScribble, .merriweather, .ubuntu, .workSans, .workbench, .bebasNeue, .abel, .bitter, .eduNSWACTFoundation, .zillaSlab, .caveat, .abrilFatface, .orbitron, .acme, .concertOne]
         }
     }
 

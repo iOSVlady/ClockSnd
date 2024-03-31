@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var viewModel: OnboardingViewModel
     @State private var isAnimating: Bool = false
-    @Binding var onboardingShown: Bool
     var body: some View {
         ZStack{
             Color.clear
@@ -36,10 +36,7 @@ struct OnboardingView: View {
                 Spacer()
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 1)) {
-                        UserDefaults.standard.set(true, forKey: "onboardingShown")
-                        onboardingShown = true
-                    }
+                    viewModel.endOnboarding()
                 }) {
                     SndText(style: .bold, "Get Started")
                         .font(.headline)
@@ -53,8 +50,10 @@ struct OnboardingView: View {
             }
             .onAppear {
                 isAnimating = false
-                withAnimation(.easeOut(duration: 1.5)) {
-                    isAnimating = true
+                DispatchQueue.main.async {
+                    withAnimation(.easeOut(duration: 1.5)) {
+                        isAnimating = true
+                    }
                 }
             }
         }.ignoresSafeArea()

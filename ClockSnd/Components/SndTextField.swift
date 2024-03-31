@@ -63,7 +63,7 @@ struct SndTextField: View {
         case .userName:
             ZStack(alignment: .leading) {
                 if text.isEmpty {
-                    Text("User Name")
+                    Text("Username")
                         .font(.customFont(family: .nunito, style: .bold, size: 16))
                         .foregroundColor(.gray)
                         .padding(.leading, 16)

@@ -17,7 +17,7 @@ class GlobalClockManager: ObservableObject {
     
     var clockView: ClockView? {
         didSet {
-            if let newClockSet = clockView?.clockModel {
+            if let newClockSet = clockView?.viewModel.clockModel {
                 if arrayOfClockConfigurations.count > 9,
                    let currentObject = realmManager.getAllObjects(config: .recentClocks).min(by: { $0.recentTimeStamp < $1.recentTimeStamp }) {
                     realmManager.deleteClock(clock: currentObject, config: .recentClocks)

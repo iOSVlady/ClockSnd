@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var viewModel: TabBarViewModel
 
     @State var isClockShown: Bool = false
     @State var isAnimating: Bool = false
@@ -36,19 +37,20 @@ struct HomeView: View {
                     HStack {
                         ForEach(clockManager.arrayOfClockConfigurations.reversed(), id: \.self) { item in
                             Button {
-                                withAnimation {
-                                    clockManager.clockView = ClockView(clockModel: item)
-                                    isClockShown = true
+                                DispatchQueue.main.async {
+                                    withAnimation {
+                                        viewModel.coordinator.push(page: .clock(clock: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, shadow: item.shadow, backgroundColor: item.backgroundColor)))
+                                    }
                                 }
                             } label: {
-                                ClockView(clockModel: SndClock(font: item.font, size: "150", spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, backgroundColor: item.backgroundColor), scaleEffect: 0.6)
+                                viewModel.coordinator.build(page: .clock(clock: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, shadow: item.shadow, backgroundColor: item.backgroundColor), scaleEffect: 0.6))
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20)
-                                        .stroke(colorScheme == .light ? .clear : Color.customColor5, lineWidth: 1)
+                                        .stroke(colorScheme == .light ? .gray.opacity(0.3) : Color.customColor2, lineWidth: 2)
                                 )
+                                .shadow(color: .customColor2.opacity(0.3), radius: 2)
                                 .disabled(true)
-                                .shadow(radius: 5)
                             }
                         }
                     }
@@ -62,13 +64,17 @@ struct HomeView: View {
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
-            withAnimation {
-                isAnimating = true
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = true
+                }
             }
         }
         .onDisappear {
-            withAnimation {
-                isAnimating = false
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = false
+                }
             }
         }
         

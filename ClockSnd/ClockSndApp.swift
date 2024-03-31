@@ -6,18 +6,12 @@
 //
 
 import SwiftUI
-import UIKit
-import Firebase
-import FirebaseAppCheck
 
 @main
 struct ClockSndApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .onAppear {
-                    FirebaseApp.configure()
-                }
         }
     }
 }

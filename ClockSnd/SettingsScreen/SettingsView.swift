@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import MessageUI
 
-enum SettingsSection: Identifiable {
-    case account
-    case appearance
-    case help
+enum SettingsSection: String, Identifiable {
+    case terms
+    case privacy
+    case support
     case about
     
     var id: SettingsSection { self }
@@ -23,48 +24,63 @@ struct SettingsView: View {
     @State private var selectedSection: SettingsSection? = nil
     @State private var isAnimating: Bool = false
     
+    @State private var isShowingMailView = false
+    @State private var alertNoMail = false
+
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
                 SndText(style: .extraBold, size: 32, "Settings")
-                    .padding(.vertical, 5)
+                    .padding(.top, 10)
                     .padding(.leading, 20)
                 Spacer()
             }
             
             ScrollView {
                 VStack(spacing: 14) {
-                    settingsButton(label: "Account") {
-                        selectedSection = .account
-                    }
-                    
-                    settingsButton(label: "Help") {
-                        selectedSection = .help
-                    }
-                    
-                    settingsButton(label: "About") {
+                    settingsButton(label: "About", icon: .about) {
                         selectedSection = .about
                     }
-                    
-                    if isSignedIn {
-                        settingsButton(label: "Sign Out", color: .customColor3) {
-                            signOut()
+
+                    settingsButton(label: "Terms of Use", icon: .terms) {
+                        if let url = URL(string: "https://www.freeprivacypolicy.com/live/6eb9085e-86c6-49e8-af68-dc525297ff38") {
+                            UIApplication.shared.open(url)
                         }
                     }
                     
+                    settingsButton(label: "Privacy Policy", icon: .privacy) {
+                        if let url = URL(string: "https://www.freeprivacypolicy.com/live/7ddee06a-49c4-4498-8731-bd5ac162ba2e") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    
+                    settingsButton(label: "Developer Support", icon: .support) {
+                        if MFMailComposeViewController.canSendMail() {
+                            self.isShowingMailView = true
+                        } else {
+                            self.alertNoMail = true
+                        }
+                    }
                 }
                 .padding()
             }
             
         }
+        .sheet(isPresented: $isShowingMailView) {
+            MailView(result: self.$isShowingMailView)
+        }
+        .alert(isPresented: $alertNoMail) {
+            Alert(title: Text("No Mail Accounts"), message: Text("Please set up a Mail account in order to send email."), dismissButton: .default(Text("OK")))
+        }
         .fullScreenCover(item: $selectedSection) { section in
-            NavigationView { // Embed each child view in a NavigationView
+            NavigationView {
                 settingsSectionView(section: section)
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
-                                selectedSection = nil // Dismiss the child view
+                                selectedSection = nil
                             }) {
                                 Image(systemName: "arrow.left")
                                     .imageScale(.large)
@@ -76,20 +92,33 @@ struct SettingsView: View {
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
-            withAnimation {
-                isAnimating = true
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = true
+                }
             }
         }
         .onDisappear {
-            withAnimation {
-                isAnimating = false
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = false
+                }
             }
         }
     }
     
-    func settingsButton(label: String, color: Color = .primary, action: @escaping () -> Void) -> some View {
+    func settingsButton(label: String, icon: SettingsSection = .about, color: Color = .primary, action: @escaping () -> Void = {}) -> some View {
         Button(action: action) {
             HStack {
+                Image(icon.rawValue)
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(colorScheme == .light ? .black : .white)
+                    .frame(width: 30, height: 30)
+                    .padding(.trailing, 10)
+                
+                    
                 SndText(style: .bold, label)
                     .font(.headline)
                     .foregroundColor(color)
@@ -125,16 +154,47 @@ struct SettingsView: View {
     func settingsSectionView(section: SettingsSection) -> some View {
         // Return the appropriate view based on the selected section
         switch section {
-        case .account:
-            return AnyView(AccountView())
-        case .appearance:
-            return AnyView(AppearanceView())
-        case .help:
-            return AnyView(HelpView())
         case .about:
             return AnyView(AboutView())
+        default:
+            return AnyView(EmptyView())
         }
     }
+}
+
+struct MailView: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentation
+    @Binding var result: Bool
+
+    class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
+        @Binding var result: Bool
+        @Binding var presentation: PresentationMode
+
+        init(result: Binding<Bool>, presentation: Binding<PresentationMode>) {
+            _result = result
+            _presentation = presentation
+        }
+
+        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            self.result = false
+            $presentation.wrappedValue.dismiss()
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(result: $result, presentation: presentation)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
+        let vc = MFMailComposeViewController()
+        vc.mailComposeDelegate = context.coordinator
+        vc.setToRecipients(["romanivvladyslav057@gmail.com"]) // Replace with your email address
+        vc.setSubject("Support Request")
+        vc.setMessageBody("I need help with...", isHTML: false)
+        return vc
+    }
+
+    func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<MailView>) {}
 }
 
 struct SettingsView_Previews: PreviewProvider {

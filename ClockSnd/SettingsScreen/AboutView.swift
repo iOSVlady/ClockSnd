@@ -32,13 +32,13 @@ struct AboutView: View {
                 .font(.headline)
                 .padding(.top, 20)
 
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.")
+            Text("This app is designed to enhance your workspace with a customizable clock that pleases your eyes.")
                 .font(.body)
                 .padding()
 
             Spacer()
 
-            Text("Copyright © 2023 ClockSnd")
+            Text("Copyright © 2024 ClockSnd")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)

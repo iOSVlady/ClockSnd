@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @State var selectedTab = "home"
+    @ObservedObject var viewModel: TabBarViewModel
     let tabs = ["home", "catalog", "create", "settings"]
 
     var body: some View {
@@ -39,20 +40,20 @@ struct TabBarView: View {
             .cornerRadius(20)
             .shadow(color: .black.opacity(0.28), radius: 30)
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     @ViewBuilder
     func contentView(for tab: String) -> some View {
         switch tab {
         case "catalog":
-            StoreView()
+            StoreView(viewModel: viewModel)
         case "home":
-            HomeView()
+            HomeView(viewModel: viewModel)
         case "settings":
             SettingsView()
         case "create":
-            ClockCreatorView()
+            ClockCreatorView(viewModel: viewModel)
         default:
             EmptyView()
         }
@@ -74,16 +75,7 @@ struct TabButton: View {
                     .frame(width: 28, height: 28)
                     .foregroundColor(selectedTab == image ? Color.white : Color.customColor5)
                     .font(.title2)
-                    
-                
-
             }.padding(.horizontal, 20)
         }
-    }
-}
-
-struct TabView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView()
     }
 }

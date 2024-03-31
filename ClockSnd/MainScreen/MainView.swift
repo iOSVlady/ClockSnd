@@ -10,16 +10,9 @@ import SwiftUI
 struct MainView: View {
     @State var onboardingShown = false
     @State var orientation = UIDeviceOrientation.unknown
+    let isOnboardingPass: Bool = UserDefaults.standard.bool(forKey: "onboardingShown")
     var body: some View {
-        Group {
-            if onboardingShown {
-                TabBarView()
-                    .transition(.opacity.animation(.easeInOut.delay(0.2)))
-            } else {
-                OnboardingView(onboardingShown: $onboardingShown)
-                    .transition(.move(edge: .top).combined(with: .scale(scale: 20)).combined(with: .opacity.animation(.easeIn.speed(2))))
-            }
-        }
+        MainFlowView(targetPage: isOnboardingPass ? .basic : .onboarding) {}
     }
 }
 

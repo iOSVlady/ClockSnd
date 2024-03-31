@@ -8,7 +8,6 @@
 import Foundation
 import CoreGraphics
 import SwiftUI
-import FirebaseFirestore
 
 enum CustomizerSelector {
     case color
@@ -22,6 +21,7 @@ enum CustomizerSelector {
 enum PickerColor {
     case background
     case clock
+    case shadow
 }
 
 
@@ -29,6 +29,7 @@ class ClockCreatorViewModel: ObservableObject {
     @Published var previewClock: ClockView?
     @Published var backgroundColor: CGColor = .init(red: 240/255, green: 230/255, blue: 220/255, alpha: 1)
     @Published var fontColor: CGColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
+    @Published var shadow: CGColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
     @Published var font: Font.FontFamily = .nunito
     @Published var fontStyle: Font.FontStyle = .regular
     @Published var size: Int = 100
@@ -38,32 +39,12 @@ class ClockCreatorViewModel: ObservableObject {
     
     let clockManager: GlobalClockManager = GlobalClockManager.shared
 
-    private var db = Firestore.firestore()
-
-
     init(previewClock: ClockView? = nil) {
         self.previewClock = previewClock
     }
     
-    func saveToFirebase() {
-        let data: [String: Any] = [
-            "backgroundColor": backgroundColor.hexString(),
-            "fontColor": fontColor.hexString(),
-            "font": "\(font)",
-            "size": size
-        ]
-        
-        db.collection("themes").addDocument(data: data) { error in
-            if let error = error {
-                print("Error adding document: \(error)")
-            } else {
-                print("Document added.")
-            }
-        }
-    }
-    
     func saveClock() {
-        let newClock = SndClock(font: font.rawValue, size: String(size), spacing: String(spacing), fontStyle: fontStyle.rawValue, textColor: fontColor.toHexWithAlpha(), backgroundColor: backgroundColor.toHexWithAlpha())
+        let newClock = SndClock(font: font.rawValue, size: String(size), spacing: String(spacing), fontStyle: fontStyle.rawValue, textColor: fontColor.toHexWithAlpha(), shadow: shadow.toHexWithAlpha(), backgroundColor: backgroundColor.toHexWithAlpha())
         clockManager.realmManager.addClock(clock: newClock, config: .savedClocks)
         clockManager.syncClocksWithDB()
     }

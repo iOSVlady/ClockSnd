@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct StoreView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     @State var clockShown = false
     @State var isAnimating: Bool = false
     var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
     @StateObject var clockManager: GlobalClockManager = GlobalClockManager.shared
+    @ObservedObject var viewModel: TabBarViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -26,39 +29,49 @@ struct StoreView: View {
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
                     ForEach(clockManager.savedClocks.reversed(), id: \.self) { item in
-                        ClockView(clockModel: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, backgroundColor: item.backgroundColor), scaleEffect: 0.3)
-                            .frame(height: 250)
-                            .frame(minWidth: 100)
-//                            .scaledToFit()
-                            .cornerRadius(20)
-                            .disabled(true)
-                            .shadow(radius: 5)
-                            .padding(.top, 5)
-                            .contextMenu {
-                                Button("Delete") {
-                                    clockManager.realmManager.deleteClock(clock: item, config: .savedClocks)
-                                    clockManager.syncClocksWithDB()
+                        Button {
+                            viewModel.coordinator.push(page: .clock(clock: item))
+                        } label: {
+                            viewModel.coordinator.build(page: .clock(clock: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, shadow: item.shadow, backgroundColor: item.backgroundColor), scaleEffect: 0.3))
+                                .frame(height: 250)
+                                .frame(minWidth: 100)
+                                .cornerRadius(20)
+                                .disabled(true)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(colorScheme == .light ? .gray.opacity(0.3) : Color.customColor2, lineWidth: 2)
+                                )
+                                .shadow(color: .customColor2.opacity(0.3), radius: 2)
+                                
+                        }
+                        .padding(.top, 5)
+                        .contextMenu {
+                            Button("Delete") {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                    withAnimation {
+                                        clockManager.realmManager.deleteClock(clock: item, config: .savedClocks)
+                                        clockManager.syncClocksWithDB()
+                                    }
                                 }
                             }
-                            .onTapGesture {
-                                withAnimation {
-                                    clockManager.clockView = ClockView(clockModel: item)
-                                    clockShown = true
-                                }
-                            }
+                        }
                     }
                 }.padding(.horizontal, 5)
             }
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
-            withAnimation {
-                isAnimating = true
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = true
+                }
             }
         }
         .onDisappear {
-            withAnimation {
-                isAnimating = false
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = false
+                }
             }
         }
         .fullScreenCover(isPresented: $clockShown) {

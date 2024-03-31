@@ -11,11 +11,27 @@ struct ClockCreatorView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State var isClockShown = false
-    @StateObject var viewModel = ClockCreatorViewModel()
+    
+    @StateObject var clockCreatorViewModel = ClockCreatorViewModel()
+    @ObservedObject var viewModel: TabBarViewModel
     @State var divider = 1.7
     @State private var showMessage = true
     @State private var isAnimating = false
     
+    let rotate = AnyTransition.modifier(
+        active: RotationModifier(angle: .degrees(0)),
+        identity: RotationModifier(angle: .degrees(360))
+    )
+    struct RotationModifier: ViewModifier {
+        let angle: Angle
+        
+        func body(content: Content) -> some View {
+            content
+                .rotationEffect(angle)
+                .scaleEffect(0.5)
+                .opacity(0.5)
+        }
+    }
     var body: some View {
         VStack {
             HStack {
@@ -30,74 +46,98 @@ struct ClockCreatorView: View {
             HStack {
                 VStack(spacing: 15) {
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .color
-                            viewModel.selectedPicker = .background
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .color
+                                clockCreatorViewModel.selectedPicker = .background
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedPicker == .background && viewModel.selectedCustomizer == .color ? .extraBold : .regular,
+                        SndText(style: clockCreatorViewModel.selectedPicker == .background && clockCreatorViewModel.selectedCustomizer == .color ? .extraBold : .regular,
                                 "Background")
                         .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .color
-                            viewModel.selectedPicker = .clock
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .color
+                                clockCreatorViewModel.selectedPicker = .clock
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedPicker == .clock && viewModel.selectedCustomizer == .color ? .extraBold : .regular, "Clock")
+                        SndText(style: clockCreatorViewModel.selectedPicker == .clock && clockCreatorViewModel.selectedCustomizer == .color ? .extraBold : .regular, "Clock")
                             .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .size
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .color
+                                clockCreatorViewModel.selectedPicker = .shadow
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedCustomizer == .size ? .extraBold : .regular, "Size")
+                        SndText(style: clockCreatorViewModel.selectedPicker == .shadow && clockCreatorViewModel.selectedCustomizer == .color ? .extraBold : .regular, "Shadow")
                             .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .spacing
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .size
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedCustomizer == .spacing ? .extraBold : .regular, "Spacing")
+                        SndText(style: clockCreatorViewModel.selectedCustomizer == .size ? .extraBold : .regular, "Size")
                             .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .font
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .spacing
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedCustomizer == .font ? .extraBold : .regular, "Font")
+                        SndText(style: clockCreatorViewModel.selectedCustomizer == .spacing ? .extraBold : .regular, "Spacing")
                             .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.selectedCustomizer = .fontStyle
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .font
+                            }
                         }
                     } label: {
-                        SndText(style: viewModel.selectedCustomizer == .fontStyle ? .extraBold : .regular, "Font Style")
+                        SndText(style: clockCreatorViewModel.selectedCustomizer == .font ? .extraBold : .regular, "Font")
                             .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.saveToFirebase()
-                            viewModel.selectedCustomizer = .save
-                            viewModel.saveClock()
-                            showMessage = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                withAnimation(.easeInOut) {
-                                    showMessage = false
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .fontStyle
+                            }
+                        }
+                    } label: {
+                        SndText(style: clockCreatorViewModel.selectedCustomizer == .fontStyle ? .extraBold : .regular, "Font Style")
+                            .foregroundColor(colorScheme == .light ? .customColor2 : .customColor1)
+                    }
+                    
+                    Button {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                clockCreatorViewModel.selectedCustomizer = .save
+                                clockCreatorViewModel.saveClock()
+                                showMessage = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    withAnimation(.easeInOut) {
+                                        showMessage = false
+                                    }
                                 }
                             }
-                            
                         }
                     } label: {
                         HStack {
@@ -109,9 +149,9 @@ struct ClockCreatorView: View {
                         .cornerRadius(10)
                     }
                     
-                    if viewModel.selectedCustomizer == .font {
+                    if clockCreatorViewModel.selectedCustomizer == .font {
                         HStack(spacing: 0) {
-                            Picker(selection: $viewModel.font, label: Text("")) {
+                            Picker(selection: $clockCreatorViewModel.font, label: Text("")) {
                                 ForEach(Font.FontFamily.allFontFamilies, id: \.self) { fontFamily in
                                     Text(fontFamily.rawValue)
                                         .font(.customFont(family: .nunito, style: .regular, size: 18))
@@ -119,9 +159,9 @@ struct ClockCreatorView: View {
                             }
                             .pickerStyle(.wheel)
                         }.padding(.bottom, -95)
-                    } else if viewModel.selectedCustomizer == .fontStyle {
+                    } else if clockCreatorViewModel.selectedCustomizer == .fontStyle {
                         HStack(spacing: 0) {
-                            Picker(selection: $viewModel.fontStyle, label: Text("")) {
+                            Picker(selection: $clockCreatorViewModel.fontStyle, label: Text("")) {
                                 ForEach(Font.FontStyle.allFontFamilies, id: \.self) { fontStyle in
                                     Text(fontStyle.description)
                                         .font(.customFont(family: .nunito, style: .regular, size: 18))
@@ -129,9 +169,9 @@ struct ClockCreatorView: View {
                             }
                             .pickerStyle(.wheel)
                         }.padding(.bottom, -95)
-                    } else if viewModel.selectedCustomizer == .size {
+                    } else if clockCreatorViewModel.selectedCustomizer == .size {
                         HStack(spacing: 0) {
-                            Picker(selection: $viewModel.size, label: Text("")) {
+                            Picker(selection: $clockCreatorViewModel.size, label: Text("")) {
                                 ForEach(1 ..< 201, id: \.self) { fontSize in
                                     Text("\(fontSize)%")
                                         .font(.customFont(family: .nunito, style: .regular, size: 18))
@@ -139,9 +179,9 @@ struct ClockCreatorView: View {
                             }
                             .pickerStyle(.wheel)
                         }.padding(.bottom, -95)
-                    } else if viewModel.selectedCustomizer == .spacing {
+                    } else if clockCreatorViewModel.selectedCustomizer == .spacing {
                         HStack(spacing: 0) {
-                            Picker(selection: $viewModel.spacing, label: Text("")) {
+                            Picker(selection: $clockCreatorViewModel.spacing, label: Text("")) {
                                 ForEach(-60 ..< 20, id: \.self) { spacingSize in
                                     Text("\(spacingSize)%")
                                         .font(.customFont(family: .nunito, style: .regular, size: 18))
@@ -149,7 +189,7 @@ struct ClockCreatorView: View {
                             }
                             .pickerStyle(.wheel)
                         }.padding(.bottom, -95)
-                    } else if viewModel.selectedCustomizer == .save && showMessage {
+                    } else if clockCreatorViewModel.selectedCustomizer == .save && showMessage {
                         HStack(spacing: 0) {
                             SndText(style: .bold, "Saved")
                                 .foregroundColor(colorScheme == .light ? .customColor4 : .customColor1)
@@ -160,61 +200,60 @@ struct ClockCreatorView: View {
                 .rotation3DEffect(.degrees(10), axis: (x: 0, y: 1, z: 0))
                 .shadow(radius: 4)
                 .frame(minWidth: 100)
-                ClockView(clockModel: SndClock(font: viewModel.font.rawValue, size: String(viewModel.size), spacing: String(viewModel.spacing), fontStyle: viewModel.fontStyle.rawValue, textColor: viewModel.fontColor.toHexWithAlpha(), backgroundColor: viewModel.backgroundColor.toHexWithAlpha()), scaleEffect: 0.7)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(colorScheme == .light ? .clear : Color.customColor5, lineWidth: 1)
-                    )
-                    .disabled(true)
-                    .frame(width: 250, height: 500)
-                    .onTapGesture {
-                        isClockShown = true
-                    }.overlay {
-                        VStack {
-                            Spacer()
-                            if viewModel.selectedCustomizer == .color {
-                                ColorPicker("Picker", selection: selectedColorBinding)
-                                    .scaleEffect(3)
-                                    .labelsHidden()
-                                    .padding(.bottom, -15)
-                            }
+                Button {
+                    viewModel.coordinator.push(page: .clock(clock: SndClock(font: clockCreatorViewModel.font.rawValue, size: String(clockCreatorViewModel.size), spacing: String(clockCreatorViewModel.spacing), fontStyle: clockCreatorViewModel.fontStyle.rawValue, textColor: clockCreatorViewModel.fontColor.toHexWithAlpha(), shadow: clockCreatorViewModel.shadow.toHexWithAlpha(), backgroundColor: clockCreatorViewModel.backgroundColor.toHexWithAlpha())))
+                } label: {
+                    viewModel.coordinator.build(page: .clock(clock: SndClock(font: clockCreatorViewModel.font.rawValue, size: String(Double(0.7 * Double(clockCreatorViewModel.size))), spacing: String(clockCreatorViewModel.spacing), fontStyle: clockCreatorViewModel.fontStyle.rawValue, textColor: clockCreatorViewModel.fontColor.toHexWithAlpha(), shadow: clockCreatorViewModel.shadow.toHexWithAlpha(), backgroundColor: clockCreatorViewModel.backgroundColor.toHexWithAlpha())))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(colorScheme == .light ? .gray.opacity(0.3) : Color.customColor2, lineWidth: 2)
+                        )
+                        .shadow(color: .customColor2.opacity(0.3), radius: 2)
+                        .disabled(true)
+                }
+                .frame(width: 250, height: 500)
+                .overlay {
+                    VStack {
+                        Spacer()
+                        if clockCreatorViewModel.selectedCustomizer == .color {
+                            ColorPicker("Picker", selection: selectedColorBinding)
+                                .scaleEffect(3)
+                                .labelsHidden()
+                                .padding(.bottom, -15)
                         }
                     }
-                
+                }
             }
-            .fullScreenCover(isPresented: $isClockShown) {
-                ClockView(clockModel: SndClock(font: viewModel.font.rawValue, size: String(viewModel.size), spacing: String(viewModel.spacing), fontStyle: viewModel.fontStyle.rawValue, textColor: viewModel.fontColor.toHexWithAlpha(), backgroundColor: viewModel.backgroundColor.toHexWithAlpha()))
-                    .onAppear {
-                        viewModel.clockManager.clockView = ClockView(clockModel: SndClock(font: viewModel.font.rawValue, size: String(viewModel.size), spacing: String(viewModel.spacing), fontStyle: viewModel.fontStyle.rawValue, textColor: viewModel.fontColor.toHexWithAlpha(), backgroundColor: viewModel.backgroundColor.toHexWithAlpha()))
-                    }
-                    .onDisappear {
-                        viewModel.clockManager.clockView = nil
-                    }
-            }
+           
             .padding(.bottom, 100)
             Spacer()
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
-            withAnimation {
-                isAnimating = true
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = true
+                }
             }
         }
         .onDisappear {
-            withAnimation {
-                isAnimating = false
+            DispatchQueue.main.async {
+                withAnimation {
+                    isAnimating = false
+                }
             }
         }
     }
     
     var selectedColorBinding: Binding<CGColor> {
-        switch viewModel.selectedPicker {
+        switch clockCreatorViewModel.selectedPicker {
         case .background:
-            return $viewModel.backgroundColor
+            return $clockCreatorViewModel.backgroundColor
         case .clock:
-            return $viewModel.fontColor
+            return $clockCreatorViewModel.fontColor
+        case .shadow:
+            return $clockCreatorViewModel.shadow
         }
     }
 }
-
