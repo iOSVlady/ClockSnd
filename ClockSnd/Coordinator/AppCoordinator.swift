@@ -15,19 +15,28 @@ enum MainCoordinatorPage: NavigationCoordinatorPage {
     case basic
     case clock(clock: SndClock, scaleEffect: Double = 1.0)
     case onboarding
+    case about
+    case settings
+    
+    case comboBox(configuration: SettingsConfiguration)
 
     var orderNumber: Int {
         switch self {
-        case .undefined:
-            0
-        case .basic:
-            1
-        case .clock:
-            2
-        case .onboarding:
-            3
+        case .undefined: 0
+        case .basic: 1
+        case .clock: 2
+        case .onboarding: 3
+        case .about: 4
+        case .settings: 5
+        case .comboBox: 6
         }
     }
+}
+
+enum SettingsConfiguration {
+    case sensitivity
+    case theme
+    case sleepTime
 }
 
 enum MainCoordinatorSheet: String, NavigationCoordinatorSheet {
@@ -51,17 +60,18 @@ final class MainCoordinator: NavigationCoordinator {
     @Published var navigationStack: [MainCoordinatorPage] = []
     @Published var sheet: MainCoordinatorSheet?
     @Published var fullScreenCover: MainCoordinatorFullScreenCover?
-
-    @Published var isAgreeTermsAndConditions: Bool = false
-    @Published var isAgreePrivacyPolicy: Bool = false
-
+    
+//    public var clockConfiguration: ClockConfiguration = ClockConfiguration()
+    @Published var selectedTab: Tabs = .home
+    
     private(set) var targetPage: MainCoordinatorPage = .undefined
     var rootPageIndex: Int?
     var currentPage: MainCoordinatorPage { navigationStack.last ?? .undefined }
     var email: String = ""
     var isActiveFlow: Bool { currentPage != .undefined }
+    
 
-    init() {    }
+    init() {}
 
     func reset() {
 //        onFinished = nil
@@ -100,15 +110,33 @@ final class MainCoordinator: NavigationCoordinator {
             ClockView(viewModel: ClockViewModel(clockModel: clock, coordinator: self), scaleEffect: scaleEffect)
         case .onboarding:
             OnboardingView(viewModel: OnboardingViewModel(coordinator: self))
+        case .about:
+            AboutView(viewModel: AboutViewModel(coordinator: self))
+        case .settings:
+            AppSettingsView(viewModel: AppSettingsViewModel(coordinator: self))
+        case .comboBox(let configuration):
+            SndComboBoxView(viewModel: SndComboBoxViewModel(optionConfig: configuration, coordinator: self))
         }
     }
 
-    private var emptyViewWithBackButton: some View {
+    public var defaultNavigationBar: some View {
         VStack(spacing: 0) {
-            
-//            TopNavBar(title: "Back") { [weak self] in self?.pop() }
-//                .foregroundColor(.white)
-            Spacer()
+            Button(action: {
+                self.pop()
+            }) {
+                ZStack {
+                    HStack {
+                        Image(systemName: "arrow.left")
+                            .imageScale(.large)
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        SndText(style: .bold, size: 18, "App settings")
+                        Spacer()
+                    }
+                }
+            }
         }
     }
 

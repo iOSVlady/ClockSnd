@@ -13,15 +13,16 @@ enum SettingsSection: String, Identifiable {
     case privacy
     case support
     case about
+    case settings
     
     var id: SettingsSection { self }
 }
 
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var viewModel: TabBarViewModel
     
     @State private var isSignedIn: Bool = true
-    @State private var selectedSection: SettingsSection? = nil
     @State private var isAnimating: Bool = false
     
     @State private var isShowingMailView = false
@@ -39,8 +40,12 @@ struct SettingsView: View {
             
             ScrollView {
                 VStack(spacing: 14) {
+                    settingsButton(label: "App settings", icon: .settings) {
+                        viewModel.coordinator.push(page: .settings)
+                    }
+                    
                     settingsButton(label: "About", icon: .about) {
-                        selectedSection = .about
+                        viewModel.coordinator.push(page: .about)
                     }
 
                     settingsButton(label: "Terms of Use", icon: .terms) {
@@ -72,23 +77,6 @@ struct SettingsView: View {
         }
         .alert(isPresented: $alertNoMail) {
             Alert(title: Text("No Mail Accounts"), message: Text("Please set up a Mail account in order to send email."), dismissButton: .default(Text("OK")))
-        }
-        .fullScreenCover(item: $selectedSection) { section in
-            NavigationView {
-                settingsSectionView(section: section)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                selectedSection = nil
-                            }) {
-                                Image(systemName: "arrow.left")
-                                    .imageScale(.large)
-                                    .foregroundColor(colorScheme == .light ? .black : .white)
-                            }
-                        }
-                    }
-            }
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
@@ -150,16 +138,6 @@ struct SettingsView: View {
     func signOut() {
         isSignedIn = false
     }
-    
-    func settingsSectionView(section: SettingsSection) -> some View {
-        // Return the appropriate view based on the selected section
-        switch section {
-        case .about:
-            return AnyView(AboutView())
-        default:
-            return AnyView(EmptyView())
-        }
-    }
 }
 
 struct MailView: UIViewControllerRepresentable {
@@ -195,10 +173,4 @@ struct MailView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<MailView>) {}
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
 }

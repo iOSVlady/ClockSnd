@@ -7,25 +7,32 @@
 
 import SwiftUI
 
+enum Tabs: String {
+    case home
+    case catalog
+    case create
+    case settings
+}
+
 struct TabBarView: View {
-    @State var selectedTab = "home"
     @ObservedObject var viewModel: TabBarViewModel
-    let tabs = ["home", "catalog", "create", "settings"]
+    let tabs = [Tabs.home, Tabs.catalog, Tabs.create, Tabs.settings]
 
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-            
-            TabView(selection: $selectedTab) {
+
+            TabView(selection: $viewModel.coordinator.selectedTab) {
                 ForEach(tabs, id: \.self) { tab in
-                    contentView(for: tab)
+                    contentView(for: tab.rawValue)
                         .tag(tab)
+
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         
             HStack(spacing: 0) {
                 ForEach(tabs, id: \.self) { image in
-                    TabButton(image: image, selectedTab: $selectedTab)
+                    TabButton(image: image.rawValue, selectedTab: $viewModel.coordinator.selectedTab)
 
                     if image != tabs.last {
                         Spacer(minLength: 0)
@@ -37,10 +44,11 @@ struct TabBarView: View {
             .padding(.top, 10)
             .background(Color.customColor2)
             .background(Color.customColor7.shadow(color: .white.opacity(0.28), radius: 5, x: 0, y: -5))
-            .cornerRadius(20)
+            .clipShape(TopRoundedRectangle(radius: 20))
             .shadow(color: .black.opacity(0.28), radius: 30)
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .ignoresSafeArea(edges: .bottom)
+
     }
     
     @ViewBuilder
@@ -51,7 +59,7 @@ struct TabBarView: View {
         case "home":
             HomeView(viewModel: viewModel)
         case "settings":
-            SettingsView()
+            SettingsView(viewModel: viewModel)
         case "create":
             ClockCreatorView(viewModel: viewModel)
         default:
@@ -63,19 +71,28 @@ struct TabBarView: View {
 
 struct TabButton: View {
     var image: String
-    @Binding var selectedTab: String
+    @Binding var selectedTab: Tabs
     var body: some View {
         Button(action: {
-            selectedTab = image
+            selectedTab = Tabs(rawValue: image) ?? .home
         }) {
             VStack {
                 Image(image)
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 28, height: 28)
-                    .foregroundColor(selectedTab == image ? Color.white : Color.customColor5)
+                    .foregroundColor(selectedTab.rawValue == image ? Color.white : Color.customColor5)
                     .font(.title2)
             }.padding(.horizontal, 20)
         }
+    }
+}
+
+struct TopRoundedRectangle: Shape {
+    var radius: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }

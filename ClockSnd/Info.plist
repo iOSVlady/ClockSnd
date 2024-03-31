@@ -56,24 +56,24 @@
 		<string>Roboto-SemiBoldItalic.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
-		<string>Rubik_Scribble-Black.ttf</string>
-		<string>Rubik_Scribble-BlackItalic.ttf</string>
-		<string>Rubik_Scribble-Bold.ttf</string>
-		<string>Rubik_Scribble-BoldItalic.ttf</string>
-		<string>Rubik_Scribble-ExtraBold.ttf</string>
-		<string>Rubik_Scribble-ExtraBoldItalic.ttf</string>
-		<string>Rubik_Scribble-ExtraLight.ttf</string>
-		<string>Rubik_Scribble-ExtraLightItalic.ttf</string>
-		<string>Rubik_Scribble-Italic.ttf</string>
-		<string>Rubik_Scribble-Light.ttf</string>
-		<string>Rubik_Scribble-LightItalic.ttf</string>
-		<string>Rubik_Scribble-Medium.ttf</string>
-		<string>Rubik_Scribble-MediumItalic.ttf</string>
-		<string>Rubik_Scribble-Regular.ttf</string>
-		<string>Rubik_Scribble-SemiBold.ttf</string>
-		<string>Rubik_Scribble-SemiBoldItalic.ttf</string>
-		<string>Rubik_Scribble-Thin.ttf</string>
-		<string>Rubik_Scribble-ThinItalic.ttf</string>
+		<string>RubikScribble-Black.ttf</string>
+		<string>RubikScribble-BlackItalic.ttf</string>
+		<string>RubikScribble-Bold.ttf</string>
+		<string>RubikScribble-BoldItalic.ttf</string>
+		<string>RubikScribble-ExtraBold.ttf</string>
+		<string>RubikScribble-ExtraBoldItalic.ttf</string>
+		<string>RubikScribble-ExtraLight.ttf</string>
+		<string>RubikScribble-ExtraLightItalic.ttf</string>
+		<string>RubikScribble-Italic.ttf</string>
+		<string>RubikScribble-Light.ttf</string>
+		<string>RubikScribble-LightItalic.ttf</string>
+		<string>RubikScribble-Medium.ttf</string>
+		<string>RubikScribble-MediumItalic.ttf</string>
+		<string>RubikScribble-Regular.ttf</string>
+		<string>RubikScribble-SemiBold.ttf</string>
+		<string>RubikScribble-SemiBoldItalic.ttf</string>
+		<string>RubikScribble-Thin.ttf</string>
+		<string>RubikScribble-ThinItalic.ttf</string>
 		<string>Merriweather-Black.ttf</string>
 		<string>Merriweather-BlackItalic.ttf</string>
 		<string>Merriweather-Bold.ttf</string>
@@ -110,24 +110,24 @@
 		<string>Ubuntu-SemiBoldItalic.ttf</string>
 		<string>Ubuntu-Thin.ttf</string>
 		<string>Ubuntu-ThinItalic.ttf</string>
-		<string>Work_Sans-Black.ttf</string>
-		<string>Work_Sans-BlackItalic.ttf</string>
-		<string>Work_Sans-Bold.ttf</string>
-		<string>Work_Sans-BoldItalic.ttf</string>
-		<string>Work_Sans-ExtraBold.ttf</string>
-		<string>Work_Sans-ExtraBoldItalic.ttf</string>
-		<string>Work_Sans-ExtraLight.ttf</string>
-		<string>Work_Sans-ExtraLightItalic.ttf</string>
-		<string>Work_Sans-Italic.ttf</string>
-		<string>Work_Sans-Light.ttf</string>
-		<string>Work_Sans-LightItalic.ttf</string>
-		<string>Work_Sans-Medium.ttf</string>
-		<string>Work_Sans-MediumItalic.ttf</string>
-		<string>Work_Sans-Regular.ttf</string>
-		<string>Work_Sans-SemiBold.ttf</string>
-		<string>Work_Sans-SemiBoldItalic.ttf</string>
-		<string>Work_Sans-Thin.ttf</string>
-		<string>Work_Sans-ThinItalic.ttf</string>
+		<string>WorkSans-Black.ttf</string>
+		<string>WorkSans-BlackItalic.ttf</string>
+		<string>WorkSans-Bold.ttf</string>
+		<string>WorkSans-BoldItalic.ttf</string>
+		<string>WorkSans-ExtraBold.ttf</string>
+		<string>WorkSans-ExtraBoldItalic.ttf</string>
+		<string>WorkSans-ExtraLight.ttf</string>
+		<string>WorkSans-ExtraLightItalic.ttf</string>
+		<string>WorkSans-Italic.ttf</string>
+		<string>WorkSans-Light.ttf</string>
+		<string>WorkSans-LightItalic.ttf</string>
+		<string>WorkSans-Medium.ttf</string>
+		<string>WorkSans-MediumItalic.ttf</string>
+		<string>WorkSans-Regular.ttf</string>
+		<string>WorkSans-SemiBold.ttf</string>
+		<string>WorkSans-SemiBoldItalic.ttf</string>
+		<string>WorkSans-Thin.ttf</string>
+		<string>WorkSans-ThinItalic.ttf</string>
 		<string>Workbench-Black.ttf</string>
 		<string>Workbench-BlackItalic.ttf</string>
 		<string>Workbench-Bold.ttf</string>
@@ -146,24 +146,24 @@
 		<string>Workbench-SemiBoldItalic.ttf</string>
 		<string>Workbench-Thin.ttf</string>
 		<string>Workbench-ThinItalic.ttf</string>
-		<string>Bebas_Neue-Black.ttf</string>
-		<string>Bebas_Neue-BlackItalic.ttf</string>
-		<string>Bebas_Neue-Bold.ttf</string>
-		<string>Bebas_Neue-BoldItalic.ttf</string>
-		<string>Bebas_Neue-ExtraBold.ttf</string>
-		<string>Bebas_Neue-ExtraBoldItalic.ttf</string>
-		<string>Bebas_Neue-ExtraLight.ttf</string>
-		<string>Bebas_Neue-ExtraLightItalic.ttf</string>
-		<string>Bebas_Neue-Italic.ttf</string>
-		<string>Bebas_Neue-Light.ttf</string>
-		<string>Bebas_Neue-LightItalic.ttf</string>
-		<string>Bebas_Neue-Medium.ttf</string>
-		<string>Bebas_Neue-MediumItalic.ttf</string>
-		<string>Bebas_Neue-Regular.ttf</string>
-		<string>Bebas_Neue-SemiBold.ttf</string>
-		<string>Bebas_Neue-SemiBoldItalic.ttf</string>
-		<string>Bebas_Neue-Thin.ttf</string>
-		<string>Bebas_Neue-ThinItalic.ttf</string>
+		<string>BebasNeue-Black.ttf</string>
+		<string>BebasNeue-BlackItalic.ttf</string>
+		<string>BebasNeue-Bold.ttf</string>
+		<string>BebasNeue-BoldItalic.ttf</string>
+		<string>BebasNeue-ExtraBold.ttf</string>
+		<string>BebasNeue-ExtraBoldItalic.ttf</string>
+		<string>BebasNeue-ExtraLight.ttf</string>
+		<string>BebasNeue-ExtraLightItalic.ttf</string>
+		<string>BebasNeue-Italic.ttf</string>
+		<string>BebasNeue-Light.ttf</string>
+		<string>BebasNeue-LightItalic.ttf</string>
+		<string>BebasNeue-Medium.ttf</string>
+		<string>BebasNeue-MediumItalic.ttf</string>
+		<string>BebasNeue-Regular.ttf</string>
+		<string>BebasNeue-SemiBold.ttf</string>
+		<string>BebasNeue-SemiBoldItalic.ttf</string>
+		<string>BebasNeue-Thin.ttf</string>
+		<string>BebasNeue-ThinItalic.ttf</string>
 		<string>Abel-Black.ttf</string>
 		<string>Abel-BlackItalic.ttf</string>
 		<string>Abel-Bold.ttf</string>
@@ -200,42 +200,42 @@
 		<string>Bitter-SemiBoldItalic.ttf</string>
 		<string>Bitter-Thin.ttf</string>
 		<string>Bitter-ThinItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Black.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-BlackItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Bold.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-BoldItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-ExtraBold.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-ExtraBoldItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-ExtraLight.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-ExtraLightItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Italic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Light.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-LightItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Medium.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-MediumItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Regular.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-SemiBold.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-SemiBoldItalic.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-Thin.ttf</string>
-		<string>Edu_NSW_ACT_Foundation-ThinItalic.ttf</string>
-		<string>Zilla_Slab-Black.ttf</string>
-		<string>Zilla_Slab-BlackItalic.ttf</string>
-		<string>Zilla_Slab-Bold.ttf</string>
-		<string>Zilla_Slab-BoldItalic.ttf</string>
-		<string>Zilla_Slab-ExtraBold.ttf</string>
-		<string>Zilla_Slab-ExtraBoldItalic.ttf</string>
-		<string>Zilla_Slab-ExtraLight.ttf</string>
-		<string>Zilla_Slab-ExtraLightItalic.ttf</string>
-		<string>Zilla_Slab-Italic.ttf</string>
-		<string>Zilla_Slab-Light.ttf</string>
-		<string>Zilla_Slab-LightItalic.ttf</string>
-		<string>Zilla_Slab-Medium.ttf</string>
-		<string>Zilla_Slab-MediumItalic.ttf</string>
-		<string>Zilla_Slab-Regular.ttf</string>
-		<string>Zilla_Slab-SemiBold.ttf</string>
-		<string>Zilla_Slab-SemiBoldItalic.ttf</string>
-		<string>Zilla_Slab-Thin.ttf</string>
-		<string>Zilla_Slab-ThinItalic.ttf</string>
+		<string>EduNSWACTFoundation-Black.ttf</string>
+		<string>EduNSWACTFoundation-BlackItalic.ttf</string>
+		<string>EduNSWACTFoundation-Bold.ttf</string>
+		<string>EduNSWACTFoundation-BoldItalic.ttf</string>
+		<string>EduNSWACTFoundation-ExtraBold.ttf</string>
+		<string>EduNSWACTFoundation-ExtraBoldItalic.ttf</string>
+		<string>EduNSWACTFoundation-ExtraLight.ttf</string>
+		<string>EduNSWACTFoundation-ExtraLightItalic.ttf</string>
+		<string>EduNSWACTFoundation-Italic.ttf</string>
+		<string>EduNSWACTFoundation-Light.ttf</string>
+		<string>EduNSWACTFoundation-LightItalic.ttf</string>
+		<string>EduNSWACTFoundation-Medium.ttf</string>
+		<string>EduNSWACTFoundation-MediumItalic.ttf</string>
+		<string>EduNSWACTFoundation-Regular.ttf</string>
+		<string>EduNSWACTFoundation-SemiBold.ttf</string>
+		<string>EduNSWACTFoundation-SemiBoldItalic.ttf</string>
+		<string>EduNSWACTFoundation-Thin.ttf</string>
+		<string>EduNSWACTFoundation-ThinItalic.ttf</string>
+		<string>ZillaSlab-Black.ttf</string>
+		<string>ZillaSlab-BlackItalic.ttf</string>
+		<string>ZillaSlab-Bold.ttf</string>
+		<string>ZillaSlab-BoldItalic.ttf</string>
+		<string>ZillaSlab-ExtraBold.ttf</string>
+		<string>ZillaSlab-ExtraBoldItalic.ttf</string>
+		<string>ZillaSlab-ExtraLight.ttf</string>
+		<string>ZillaSlab-ExtraLightItalic.ttf</string>
+		<string>ZillaSlab-Italic.ttf</string>
+		<string>ZillaSlab-Light.ttf</string>
+		<string>ZillaSlab-LightItalic.ttf</string>
+		<string>ZillaSlab-Medium.ttf</string>
+		<string>ZillaSlab-MediumItalic.ttf</string>
+		<string>ZillaSlab-Regular.ttf</string>
+		<string>ZillaSlab-SemiBold.ttf</string>
+		<string>ZillaSlab-SemiBoldItalic.ttf</string>
+		<string>ZillaSlab-Thin.ttf</string>
+		<string>ZillaSlab-ThinItalic.ttf</string>
 		<string>Caveat-Black.ttf</string>
 		<string>Caveat-BlackItalic.ttf</string>
 		<string>Caveat-Bold.ttf</string>
@@ -254,24 +254,24 @@
 		<string>Caveat-SemiBoldItalic.ttf</string>
 		<string>Caveat-Thin.ttf</string>
 		<string>Caveat-ThinItalic.ttf</string>
-		<string>Abril_Fatface-Black.ttf</string>
-		<string>Abril_Fatface-BlackItalic.ttf</string>
-		<string>Abril_Fatface-Bold.ttf</string>
-		<string>Abril_Fatface-BoldItalic.ttf</string>
-		<string>Abril_Fatface-ExtraBold.ttf</string>
-		<string>Abril_Fatface-ExtraBoldItalic.ttf</string>
-		<string>Abril_Fatface-ExtraLight.ttf</string>
-		<string>Abril_Fatface-ExtraLightItalic.ttf</string>
-		<string>Abril_Fatface-Italic.ttf</string>
-		<string>Abril_Fatface-Light.ttf</string>
-		<string>Abril_Fatface-LightItalic.ttf</string>
-		<string>Abril_Fatface-Medium.ttf</string>
-		<string>Abril_Fatface-MediumItalic.ttf</string>
-		<string>Abril_Fatface-Regular.ttf</string>
-		<string>Abril_Fatface-SemiBold.ttf</string>
-		<string>Abril_Fatface-SemiBoldItalic.ttf</string>
-		<string>Abril_Fatface-Thin.ttf</string>
-		<string>Abril_Fatface-ThinItalic.ttf</string>
+		<string>AbrilFatface-Black.ttf</string>
+		<string>AbrilFatface-BlackItalic.ttf</string>
+		<string>AbrilFatface-Bold.ttf</string>
+		<string>AbrilFatface-BoldItalic.ttf</string>
+		<string>AbrilFatface-ExtraBold.ttf</string>
+		<string>AbrilFatface-ExtraBoldItalic.ttf</string>
+		<string>AbrilFatface-ExtraLight.ttf</string>
+		<string>AbrilFatface-ExtraLightItalic.ttf</string>
+		<string>AbrilFatface-Italic.ttf</string>
+		<string>AbrilFatface-Light.ttf</string>
+		<string>AbrilFatface-LightItalic.ttf</string>
+		<string>AbrilFatface-Medium.ttf</string>
+		<string>AbrilFatface-MediumItalic.ttf</string>
+		<string>AbrilFatface-Regular.ttf</string>
+		<string>AbrilFatface-SemiBold.ttf</string>
+		<string>AbrilFatface-SemiBoldItalic.ttf</string>
+		<string>AbrilFatface-Thin.ttf</string>
+		<string>AbrilFatface-ThinItalic.ttf</string>
 		<string>Orbitron-Black.ttf</string>
 		<string>Orbitron-BlackItalic.ttf</string>
 		<string>Orbitron-Bold.ttf</string>
@@ -308,24 +308,24 @@
 		<string>Acme-SemiBoldItalic.ttf</string>
 		<string>Acme-Thin.ttf</string>
 		<string>Acme-ThinItalic.ttf</string>
-		<string>Concert_One-Black.ttf</string>
-		<string>Concert_One-BlackItalic.ttf</string>
-		<string>Concert_One-Bold.ttf</string>
-		<string>Concert_One-BoldItalic.ttf</string>
-		<string>Concert_One-ExtraBold.ttf</string>
-		<string>Concert_One-ExtraBoldItalic.ttf</string>
-		<string>Concert_One-ExtraLight.ttf</string>
-		<string>Concert_One-ExtraLightItalic.ttf</string>
-		<string>Concert_One-Italic.ttf</string>
-		<string>Concert_One-Light.ttf</string>
-		<string>Concert_One-LightItalic.ttf</string>
-		<string>Concert_One-Medium.ttf</string>
-		<string>Concert_One-MediumItalic.ttf</string>
-		<string>Concert_One-Regular.ttf</string>
-		<string>Concert_One-SemiBold.ttf</string>
-		<string>Concert_One-SemiBoldItalic.ttf</string>
-		<string>Concert_One-Thin.ttf</string>
-		<string>Concert_One-ThinItalic.ttf</string>
+		<string>ConcertOne-Black.ttf</string>
+		<string>ConcertOne-BlackItalic.ttf</string>
+		<string>ConcertOne-Bold.ttf</string>
+		<string>ConcertOne-BoldItalic.ttf</string>
+		<string>ConcertOne-ExtraBold.ttf</string>
+		<string>ConcertOne-ExtraBoldItalic.ttf</string>
+		<string>ConcertOne-ExtraLight.ttf</string>
+		<string>ConcertOne-ExtraLightItalic.ttf</string>
+		<string>ConcertOne-Italic.ttf</string>
+		<string>ConcertOne-Light.ttf</string>
+		<string>ConcertOne-LightItalic.ttf</string>
+		<string>ConcertOne-Medium.ttf</string>
+		<string>ConcertOne-MediumItalic.ttf</string>
+		<string>ConcertOne-Regular.ttf</string>
+		<string>ConcertOne-SemiBold.ttf</string>
+		<string>ConcertOne-SemiBoldItalic.ttf</string>
+		<string>ConcertOne-Thin.ttf</string>
+		<string>ConcertOne-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>

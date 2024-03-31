@@ -10,21 +10,20 @@ import SwiftUI
 
 extension Font {
     enum FontFamily: String {
-        case rubikScribble = "Rubik_Scribble"
+        case rubikScribble = "RubikScribble"
         case merriweather = "Merriweather"
         case ubuntu = "Ubuntu"
-        case workSans = "Work_Sans"
+        case workSans = "WorkSans"
         case workbench = "Workbench"
-        case bebasNeue = "Bebas_Neue"
+        case bebasNeue = "BebasNeue"
         case abel = "Abel"
         case bitter = "Bitter"
-        case eduNSWACTFoundation = "Edu_NSW_ACT_Foundation"
-        case zillaSlab = "Zilla_Slab"
-        case caveat = "Caveat"
-        case abrilFatface = "Abril_Fatface"
+        case eduNSWACTFoundation = "EduNSWACTFoundation"
+        case zillaSlab = "ZillaSlab"
+        case abrilFatface = "AbrilFatface"
         case orbitron = "Orbitron"
         case acme = "Acme"
-        case concertOne = "Concert_One"
+        case concertOne = "ConcertOne"
         case nunito = "Nunito"
         case jost = "Jost"
         case roboto = "Roboto"
@@ -45,7 +44,6 @@ extension Font {
             case .bitter: return 10
             case .eduNSWACTFoundation: return 11
             case .zillaSlab: return 12
-            case .caveat: return 13
             case .abrilFatface: return 14
             case .orbitron: return 15
             case .acme: return 16
@@ -54,7 +52,7 @@ extension Font {
         }
         
         static var allFontFamilies: [FontFamily] {
-            return [.jost, .nunito, .roboto, .rubikScribble, .merriweather, .ubuntu, .workSans, .workbench, .bebasNeue, .abel, .bitter, .eduNSWACTFoundation, .zillaSlab, .caveat, .abrilFatface, .orbitron, .acme, .concertOne]
+            return [.jost, .nunito, .roboto, .rubikScribble, .merriweather, .ubuntu, .workSans, .workbench, .bebasNeue, .abel, .bitter, .eduNSWACTFoundation, .zillaSlab, .abrilFatface, .orbitron, .acme, .concertOne]
         }
     }
 

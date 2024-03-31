@@ -15,7 +15,7 @@ class OnboardingViewModel: ObservableObject {
     }
     
     func endOnboarding() {
-        UserDefaults.standard.set(true, forKey: "onboardingShown")
+        SndUserDefaults.onboarding = true
         coordinator.setRootView(to: .basic)
     }
 }

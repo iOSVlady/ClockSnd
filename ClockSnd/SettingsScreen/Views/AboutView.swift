@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct AboutView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var viewModel: AboutViewModel
+
     var body: some View {
         VStack {
+            viewModel.coordinator.defaultNavigationBar
+                .foregroundColor(colorScheme == .light ? .black : .white)
+
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -28,7 +34,7 @@ struct AboutView: View {
 
             Spacer()
 
-            Text("About Your App")
+            Text("About App")
                 .font(.headline)
                 .padding(.top, 20)
 
@@ -38,18 +44,11 @@ struct AboutView: View {
 
             Spacer()
 
-            Text("Copyright © 2024 ClockSnd")
+            Text("Copyright © \( Date().formatted(Date.FormatStyle().year())) ClockSnd")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)
         }
         .padding()
-        .navigationBarTitle("About", displayMode: .inline)
-    }
-}
-
-struct AboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutView()
     }
 }

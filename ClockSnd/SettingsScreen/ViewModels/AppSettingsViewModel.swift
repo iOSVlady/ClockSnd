@@ -1,15 +1,16 @@
 //
-//  TabBarViewModel.swift
+//  AppSettingsViewModel.swift
 //  ClockSnd
 //
-//  Created by Vlady on 27.03.2024.
+//  Created by Vlady on 31.03.2024.
 //
 
 import Foundation
+import SwiftUI
 
-class TabBarViewModel: ObservableObject {
-
+class AppSettingsViewModel: ObservableObject {
     @Published var coordinator: MainCoordinator
+
     init(coordinator: MainCoordinator) {
         self.coordinator = coordinator
     }

@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var onboardingShown = false
-    @State var orientation = UIDeviceOrientation.unknown
-    let isOnboardingPass: Bool = UserDefaults.standard.bool(forKey: "onboardingShown")
     var body: some View {
-        MainFlowView(targetPage: isOnboardingPass ? .basic : .onboarding) {}
+        MainFlowView(targetPage: SndUserDefaults.onboarding ? .basic : .onboarding) {}
     }
 }
 

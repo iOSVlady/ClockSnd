@@ -11,6 +11,7 @@ import Combine
 struct ClockView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
+    @StateObject private var accelManager = AccelerometerManager()
     @ObservedObject var viewModel: ClockViewModel
     @StateObject var clockManager: GlobalClockManager = GlobalClockManager.shared
     @Environment(\.presentationMode) var presentationMode
@@ -20,20 +21,25 @@ struct ClockView: View {
     @State var hour: String = "00"
     @State var minute: String = "00"
     @State var updateTimer: Timer?
+    
+    @State private var timeRemaining = SndUserDefaults.sleepTime
+    @State private var timer: Timer?
+    @State private var isActive = true
     var scaleEffect: CGFloat = 1
 
     var body: some View {
         ZStack(alignment: .bottom) {
             viewModel.clockModel.backgroundColor.colorFromHexWithOpacity()
                 .ignoresSafeArea()
-            if hideNotch {
-                nouchHideBuilder
-            }
             
             GeometryReader { geometry in
                 clockView
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }.frame(minWidth: 230)
+            
+            if hideNotch {
+                nouchHideBuilder
+            }
             
             if showInstruments {
                 VStack {
@@ -41,17 +47,22 @@ struct ClockView: View {
                     instrumentsView
                     Spacer()
                 }
+                
             }
+            
         }
+        .transition(.identity)
         .onTapGesture {
             DispatchQueue.main.async {
                 withAnimation() {
                     showInstruments.toggle()
                     clockManager.clockView = self
+                    resetTimer()
                 }
             }
         }
         .onAppear {
+            resetTimer()
             updateTime()
             updateTimer = {
                Timer.scheduledTimer(withTimeInterval: 1, repeats: true,
@@ -64,9 +75,29 @@ struct ClockView: View {
             updateTimer?.invalidate()
             updateTimer = nil
         }
-        .transition(.opacity)
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+            if !SndUserDefaults.neverSleep {
+                if self.timeRemaining > 0 {
+                    self.timeRemaining -= 1
+                } else {
+                    withAnimation(.easeInOut(duration: 5)) {
+                        self.isActive = false
+                    }
+                }
+            }
+        }
+        .onChange(of: accelManager.acceleration) {
+            resetTimer()
+        }
         .statusBar(hidden: true)
         .persistentSystemOverlays(.hidden)
+    }
+    
+    func resetTimer() {
+        timeRemaining = SndUserDefaults.sleepTime
+        withAnimation(.easeInOut(duration: 5)) {
+            isActive = true
+        }
     }
     
     @ViewBuilder
@@ -84,6 +115,10 @@ struct ClockView: View {
                 path.addRoundedRect(in: rect, cornerSize: CGSize(width: cornerRadius, height: cornerRadius))
             }
             .stroke(Color.black, style: StrokeStyle(lineWidth: 60, lineCap: .round, lineJoin: .round))
+            if !isActive {
+                Color.black
+                    .ignoresSafeArea()
+            }
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = true
@@ -111,7 +146,7 @@ extension ClockView {
 
             Spacer()
         }
-        .padding(.bottom, rotationIndex == 0 ? 0 : 30)
+        .padding(.bottom, rotationIndex == 0 ? 0 : 20)
         .shadow(color: viewModel.clockModel.shadow.colorFromHexWithOpacity(), radius: 3, x: 0, y: 4)
         .scaleEffect(viewModel.clockModel.size.toCGFloat() * 0.01 * scaleEffect)
     }
@@ -175,7 +210,7 @@ extension ClockView {
     var instrumentsView: some View {
         VStack {
             ZStack {
-                Color.gray.opacity(0.5).blur(radius: 3.0).cornerRadius(20)
+                Color.gray.opacity(0.2).blur(radius: 3.0).cornerRadius(20)
                 HStack {
                     Button {
                         DispatchQueue.main.async {
@@ -186,7 +221,7 @@ extension ClockView {
                             }
                         }
                     } label: {
-                        SndText(family: Font.FontFamily(rawValue: viewModel.clockModel.font) ?? .nunito, style: .extraBold, "Back")
+                        SndText(family: .nunito, style: .extraBold, "Back")
                     }
                     .font(.headline)
                     .foregroundColor(.white)
@@ -201,7 +236,7 @@ extension ClockView {
                             }
                         }
                     } label: {
-                        SndText(family: Font.FontFamily(rawValue: viewModel.clockModel.font) ?? .nunito, style: .extraBold, "Hide Notch")
+                        SndText(family: .nunito, style: .extraBold, "Hide Notch")
                     }
                     .font(.headline)
                     .foregroundColor(.white)
@@ -220,7 +255,7 @@ extension ClockView {
                             }
                         }
                     } label: {
-                        SndText(family: Font.FontFamily(rawValue: viewModel.clockModel.font) ?? .nunito, style: .extraBold, "Orientation")
+                        SndText(family: .nunito, style: .extraBold, "Orientation")
                     }
                     .font(.headline)
                     .foregroundColor(.white)
