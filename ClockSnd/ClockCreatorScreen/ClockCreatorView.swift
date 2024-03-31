@@ -227,7 +227,6 @@ struct ClockCreatorView: View {
             }
            
             .padding(.bottom, 100)
-            Spacer()
         }
         .opacity(isAnimating ? 1 : 0)
         .onAppear {
