@@ -162,6 +162,7 @@
 		74C4B3D72BB961CF00CF715B /* SndComboBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4B3D62BB961CF00CF715B /* SndComboBoxViewModel.swift */; };
 		74C4B3D92BB97CEF00CF715B /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4B3D82BB97CEF00CF715B /* UserDefaults.swift */; };
 		74C4B3DB2BB9837F00CF715B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4B3DA2BB9837F00CF715B /* ThemeManager.swift */; };
+		74C4B3DD2BBAB80D00CF715B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 74C4B3DC2BBAB80D00CF715B /* PrivacyInfo.xcprivacy */; };
 		74FF5B862A9952B800F459BE /* ClockSndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF5B852A9952B800F459BE /* ClockSndApp.swift */; };
 		74FF5B8A2A9952B900F459BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74FF5B892A9952B900F459BE /* Assets.xcassets */; };
 		74FF5B8E2A9952B900F459BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74FF5B8D2A9952B900F459BE /* Preview Assets.xcassets */; };
@@ -297,6 +298,7 @@
 		74C4B3D62BB961CF00CF715B /* SndComboBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SndComboBoxViewModel.swift; sourceTree = "<group>"; };
 		74C4B3D82BB97CEF00CF715B /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		74C4B3DA2BB9837F00CF715B /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		74C4B3DC2BBAB80D00CF715B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		74FF5B822A9952B800F459BE /* ClockSnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClockSnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FF5B852A9952B800F459BE /* ClockSndApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSndApp.swift; sourceTree = "<group>"; };
 		74FF5B892A9952B900F459BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		74FF5B792A9952B800F459BE = {
 			isa = PBXGroup;
 			children = (
+				74C4B3DC2BBAB80D00CF715B /* PrivacyInfo.xcprivacy */,
 				74FF5B842A9952B800F459BE /* ClockSnd */,
 				74FF5B832A9952B800F459BE /* Products */,
 			);
@@ -787,6 +790,7 @@
 				74C4B3492BB8FA7800CF715B /* ConcertOne-Regular.ttf in Resources */,
 				74C4B34B2BB8FA7800CF715B /* Jost-Italic.ttf in Resources */,
 				74C4B3A32BB8FA7800CF715B /* EduNSWACTFoundation-Bold.ttf in Resources */,
+				74C4B3DD2BBAB80D00CF715B /* PrivacyInfo.xcprivacy in Resources */,
 				74C4B36D2BB8FA7800CF715B /* Ubuntu-Light.ttf in Resources */,
 				74C4B3872BB8FA7800CF715B /* Roboto-MediumItalic.ttf in Resources */,
 				74C4B38C2BB8FA7800CF715B /* Workbench-Regular.ttf in Resources */,

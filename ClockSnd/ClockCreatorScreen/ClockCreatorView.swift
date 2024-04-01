@@ -201,6 +201,7 @@ struct ClockCreatorView: View {
                 .shadow(radius: 4)
                 .frame(minWidth: 100)
                 Button {
+                    UIApplication.shared.isIdleTimerDisabled = true
                     viewModel.coordinator.push(page: .clock(clock: SndClock(font: clockCreatorViewModel.font.rawValue, size: String(clockCreatorViewModel.size), spacing: String(clockCreatorViewModel.spacing), fontStyle: clockCreatorViewModel.fontStyle.rawValue, textColor: clockCreatorViewModel.fontColor.toHexWithAlpha(), shadow: clockCreatorViewModel.shadow.toHexWithAlpha(), backgroundColor: clockCreatorViewModel.backgroundColor.toHexWithAlpha())))
                 } label: {
                     viewModel.coordinator.build(page: .clock(clock: SndClock(font: clockCreatorViewModel.font.rawValue, size: String(Double(0.7 * Double(clockCreatorViewModel.size))), spacing: String(clockCreatorViewModel.spacing), fontStyle: clockCreatorViewModel.fontStyle.rawValue, textColor: clockCreatorViewModel.fontColor.toHexWithAlpha(), shadow: clockCreatorViewModel.shadow.toHexWithAlpha(), backgroundColor: clockCreatorViewModel.backgroundColor.toHexWithAlpha())))

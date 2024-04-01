@@ -48,6 +48,7 @@ struct StoreView: View {
                     LazyVGrid(columns: gridItemLayout) {
                         ForEach(clockManager.savedClocks.reversed(), id: \.self) { item in
                             Button {
+                                UIApplication.shared.isIdleTimerDisabled = true
                                 viewModel.coordinator.push(page: .clock(clock: item))
                             } label: {
                                 viewModel.coordinator.build(page: .clock(clock: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, shadow: item.shadow, backgroundColor: item.backgroundColor), scaleEffect: 0.3))

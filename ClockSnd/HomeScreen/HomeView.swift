@@ -63,6 +63,7 @@ struct HomeView: View {
                                     Button {
                                         DispatchQueue.main.async {
                                             withAnimation {
+                                                UIApplication.shared.isIdleTimerDisabled = true
                                                 viewModel.coordinator.push(page: .clock(clock: SndClock(font: item.font, size: item.size, spacing: item.spacing, fontStyle: item.fontStyle, textColor: item.textColor, shadow: item.shadow, backgroundColor: item.backgroundColor)))
                                             }
                                         }

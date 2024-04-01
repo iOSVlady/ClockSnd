@@ -39,6 +39,7 @@ struct ClockView: View {
             
             if hideNotch {
                 nouchHideBuilder
+                    .zIndex(1)
             }
             
             if showInstruments {
@@ -46,10 +47,15 @@ struct ClockView: View {
                     Spacer()
                     instrumentsView
                     Spacer()
-                }
+                }.zIndex(2)
                 
             }
             
+            if !isActive && UIApplication.shared.isIdleTimerDisabled {
+                Color.black
+                    .ignoresSafeArea()
+                    .zIndex(3)
+            }
         }
         .transition(.identity)
         .onTapGesture {
@@ -81,7 +87,7 @@ struct ClockView: View {
                     self.timeRemaining -= 1
                 } else {
                     withAnimation(.easeInOut(duration: 5)) {
-                        self.isActive = false
+                        isActive = false
                     }
                 }
             }
@@ -115,16 +121,6 @@ struct ClockView: View {
                 path.addRoundedRect(in: rect, cornerSize: CGSize(width: cornerRadius, height: cornerRadius))
             }
             .stroke(Color.black, style: StrokeStyle(lineWidth: 60, lineCap: .round, lineJoin: .round))
-            if !isActive {
-                Color.black
-                    .ignoresSafeArea()
-            }
-        }
-        .onAppear {
-            UIApplication.shared.isIdleTimerDisabled = true
-        }
-        .onDisappear {
-            UIApplication.shared.isIdleTimerDisabled = false
         }
         .edgesIgnoringSafeArea(.all)
         
@@ -215,6 +211,7 @@ extension ClockView {
                     Button {
                         DispatchQueue.main.async {
                             withAnimation {
+                                UIApplication.shared.isIdleTimerDisabled = false
                                 updateTimer?.invalidate()
                                 updateTimer = nil
                                 presentationMode.wrappedValue.dismiss()
