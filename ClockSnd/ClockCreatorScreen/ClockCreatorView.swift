@@ -212,7 +212,7 @@ struct ClockCreatorView: View {
                         .shadow(color: .customColor2.opacity(0.3), radius: 2)
                         .disabled(true)
                 }
-                .frame(width: 250, height: 500)
+                .frame(maxWidth: 250, maxHeight: 500)
                 .overlay {
                     VStack {
                         Spacer()
